@@ -1,10 +1,22 @@
-# NVimmer(CN)
+# NVimmer(EN)
 
 New vimmer repo, will replace the old vimmer, config totally based on NeoVim
 
-# NVimmer(ZH)
+# NVimmer(CN)
 
 NVimmer 是新版的 Vimmer，正如 NeoVim 之于 Vim，NVimmer 的配置将会完全基于 NeoVim，目标仍然是配置一套简洁，快速，高效的 Mini IDE。
+
+## 适用于
+
+1. HTML CSS JS
+2. Java
+3. C#
+4. vue
+5. TypeScript
+6. PHP
+7. c/c++
+8. Markdown
+9. json
 
 ## 注意
 
@@ -150,3 +162,11 @@ sudo apt install ctags
 如果您是一个 Vim 的死忠粉，不想要迁移到 NeoVim，仍想要那一套精简高效的 Vim 配置，可以继续使用我的 Vimmer 的配置：
 
 [https://github.com/devilyouwei/Vimmer](https://github.com/devilyouwei/Vimmer)
+
+## Examples
+
+![example](https://img-blog.csdnimg.cn/20200131123650515.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTQ0NjYxMDk=,size_16,color_FFFFFF,t_70)
+
+![example](https://img-blog.csdnimg.cn/20200131123934284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTQ0NjYxMDk=,size_16,color_FFFFFF,t_70)
+
+![example](https://img-blog.csdnimg.cn/20200131124320930.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTQ0NjYxMDk=,size_16,color_FFFFFF,t_70)
