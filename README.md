@@ -1,16 +1,16 @@
 # NVimmer(CN)
 
-New vimmer repo, will replace the old vimmer, config based on NeoVim
+New vimmer repo, will replace the old vimmer, config totally based on NeoVim
 
 # NVimmer(ZH)
 
-NVimmer 是新版的 Vimmer，正如 NeoVim 之于 Vim，NVimmer 的配置将会完全基于 NeoVim，目标仍然是配置一套简洁，高效的 Mini IDE。
+NVimmer 是新版的 Vimmer，正如 NeoVim 之于 Vim，NVimmer 的配置将会完全基于 NeoVim，目标仍然是配置一套简洁，快速，高效的 Mini IDE。
 
 ## 注意
 
-很抱歉，老的 Vimmer 将停止更新！[https://github.com/devilyouwei/Vimmer](https://github.com/devilyouwei/Vimmer)
+很抱歉，老的 Vimmer 即将停止更新！[https://github.com/devilyouwei/Vimmer](https://github.com/devilyouwei/Vimmer)
 
-配置文件目前仍然支持 Vim 编辑器，您可以使用该配置替代~/.vimrc，但出于稳定和兼容性，建议使用 NeoVim
+配置文件目前仍然支持 Vim 编辑器，您可以使用该配置替代~/.vimrc，但出于稳定性和兼容性，建议使用 NeoVim
 
 ## 让我们一起用 NeoVim 吧
 
@@ -48,14 +48,28 @@ sudo snap install --beta nvim --classic
 
 **克隆 NVimmer**
 
+切换到克隆的 NVimmer 目录中，复制配置文件到用户目录下
+
 ```bash
 
 git clone https://github.com/devilyouwei/NVimmer.git
 
+cd NVimmer
+
 mkdir ~/.config/nvim/
 
-cp ./NVimmer/init.vim ~/.config/nvim/
+cp ./init.vim ~/.config/nvim/
+cp ./.eslintrc.json ~/
+cp ./.prettierrc.json ~/
 ```
+
+**安装 NodeJS**
+
+```
+sudo apt install nodejs
+```
+
+如果嫌 ubuntu 源版本太老，参考 node 官网安装最新版，本人的环境是 13
 
 **安装 Vim-Plug**
 
@@ -69,11 +83,11 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw
 
 进入 nvim，输入:PlugInstall 安装所有插件
 
-**Coc.nvim 插件安装**
+**Coc 插件安装**
 
-以下插件是为了自动补全，自动纠错，格式化，色彩高亮等 IDE 功能准备的，可以根据自己语言需求选择安装。
+以下插件是 Coc 安装插件，为了自动补全，自动纠错，格式化，色彩高亮等 IDE 功能准备的，可以根据自己语言需求选择安装。
 
-打开 nvim，输入一下 vim 命令
+打开 nvim，输入以下命令
 
 ```
 :CocInstall coc-html
@@ -85,9 +99,14 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw
 :CocInstall coc-json
 :CocInstall coc-highlight
 :CocInstall coc-css
+:CocInstall coc-prettier
+// 微信小程序
 :CocInstall coc-wxml
+// TS和JS
+:CocInstall coc-tsserver
+:CocInstall coc-vetur
+:CocInstall coc-angular
 ```
-
 
 **补充安装**
 
@@ -103,30 +122,31 @@ npm install -g neovim
 gem install neovim
 ```
 
-3. 针对前端开发者
+3. 针对前端和 JS 开发者
 
 ```bash
 npm install -g eslint
-npm install -g tslint
-npm install -g eslint-plugin-react
-npm install -g eslint-plugin-vue
-npm install -g eslint-plugin-angular
-npm install -g eslint-plugin-standard
-npm install -g eslint-plugin-promise
-npm install -g babel-eslint
-npm install -g eslint-config-standard
 npm install -g prettier
+npm install -g eslint-plugin-prettier
+npm install -g eslint-config-prettier
+```
+
+4. 针对 tagbar 安装 ctags
+
+```
+sudo apt install ctags
 ```
 
 ## 问题
 
-- PlugInstall 安装好后打开 nvim，coc 的方法 call 不到
-请检查你的 nvim 是不是低于 0.3.0，也可以输入:checkHealth 检查，清安装高于 0.3.0 的版本
+-   PlugInstall 安装好后打开 nvim，coc 的方法 call 不到请检查你的 nvim 是不是低于 0.3.0，也可以输入:checkHealth 检查，清安装高于 0.3.0 的版本
+
+-   C#的 CS 文件第一次进入会要求安装 monoserver 用于自动补全和代码检查，选择 Yes
+
+-   Nerd 字体无法显示，nerdtree 里都是乱码和方块，该问题是因为你没有安装 nerd 字体，并把 Gnome-terminal 字体更换成 nerd 字体，建议将/font 目录下的 MonacoNerd.ttf 安装到系统中，Monaco 字体真好看，并把 Gnome-terminal 字体改成 Monaco Nerd
 
 ## 不想说再见 :sob:
 
-如果您是一个 Vim 的死忠粉，仍想要一套精简高效的 Vim 配置，可以继续使用 Vimmer 的配置：
+如果您是一个 Vim 的死忠粉，不想要迁移到 NeoVim，仍想要那一套精简高效的 Vim 配置，可以继续使用我的 Vimmer 的配置：
 
 [https://github.com/devilyouwei/Vimmer](https://github.com/devilyouwei/Vimmer)
-
-由于本人也是刚开始迁移，本套配置也暂时兼容 vimrc，但不建议

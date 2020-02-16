@@ -2,8 +2,6 @@
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'majutsushi/tagbar', {'on':'TagbarToggle'}
-Plug 'prettier/vim-prettier', {'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-let g:prettier#config#tab_width = 4
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/indentLine'
@@ -252,7 +250,8 @@ nnoremap <F2> :g/^\s*$/d<CR>
 
 "代码格式化
 noremap <F12> gg=G
-autocmd FileType javascript,typescript,css,less,scss,json,graphql,markdown,vue,yaml,html noremap <F12> :Prettier<CR>
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+autocmd filetype javascript,typescript,css,less,scss,json,graphql,markdown,vue,yaml,html noremap <F12> :Prettier<CR>
 
 
 "html标签自动补全
@@ -261,10 +260,17 @@ map! <C-O> <C-Y>,
 map <F3> :NERDTreeToggle<CR>
 imap <F3> <ESC> :NERDTreeToggle<CR>
 "tagbar
-nmap <F9> :TagbarToggle<CR>
+map <F9> :TagbarToggle<CR>
+imap <F9> <ESC> :TagbarToggle<CR>
+
+"按F5保存
 map <F5> :w<CR>
-"C，C++ 按F5编译运行
+imap <F5> <ESC> :w<CR>
+
+"按F6编译运行
 map <F6> :call Compile()<CR>
+imap <F6> <ESC>:call Compile()<CR>
+
 func! Compile()
     exec "w"
     if &filetype == 'c'
