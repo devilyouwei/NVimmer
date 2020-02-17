@@ -1,18 +1,38 @@
 "vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch':'release'}
+Plug 'Shougo/neco-vim'
+Plug 'neoclide/coc-neco'
 Plug 'majutsushi/tagbar', {'on':'TagbarToggle'}
 Plug 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+Plug 'jreybert/vimagit'
+Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/indentLine'
 Plug 'udalov/kotlin-vim', {'for':'kotlin'}
+Plug 'pangloss/vim-javascript'
+Plug 'othree/html5.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'leafgarland/typescript-vim', {'for':'typescript'}
+let g:typescript_indent_disable = 1
+Plug 'isRuslan/vim-es6'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'posva/vim-vue', {'for':'vue'}
+let g:LanguageClient_serverCommands = {
+            \ 'vue': ['vls']
+            \ }
+Plug 'vim-scripts/matchit.zip',{'for':['html','jsx','vue','xml']}
+Plug 'leshill/vim-json', {'for':'json'}
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/syntastic'
 Plug 'chemzqm/wxapp.vim', {'for':['wxml','wxss','js']}
 Plug 'tomasr/molokai'
+Plug 'sickill/vim-monokai'
 Plug 'OmniSharp/omnisharp-vim', {'for':'cs'}
 "彩虹括号
 Plug 'kien/rainbow_parentheses.vim'
@@ -170,7 +190,7 @@ if has("gui_running")
     "set showtabline=0 " 隐藏Tab栏
 endif
 
-syntax on
+syntax enable
 set sw=4
 set ts=4
 set et
@@ -182,7 +202,11 @@ set sm
 set selection=inclusive
 set wildmenu
 set mousemodel=popup
-set t_Co=256 "256位色"
+set termguicolors
+set re=1
+set lazyredraw
+set synmaxcol=128
+syntax sync minlines=256
 
 "--------------------syntastic相关---------------------------------
 
@@ -239,9 +263,15 @@ set viminfo+=!
 set iskeyword+=$,@,%,#,-,_
 set guifont=Monaco\ Bold\ 12
 
-"快捷键配置----------------------------------------------------------------------------
+"tab, buffer快捷键配置----------------------------------------------------------------------------
+map <S-H> :tabp<CR>
+map <S-L> :tabn<CR>
 map <S-Left> :tabp<CR>
 map <S-Right> :tabn<CR>
+map <C-H> :bn<CR>            "下一个缓冲区
+map <C-L> :bp<CR>        "上一个缓冲区
+map <C-Left> :bn<CR>            "下一个缓冲区
+map <C-Right> :bp<CR>        "上一个缓冲区
 "打开airline智能tab
 let g:airline#extensions#tabline#enabled = 1
 "set clipboard=unnamed
@@ -351,3 +381,22 @@ set autochdir "输出时只有文件名，不带./ ../等目录前缀(默认了�
 set termencoding=UTF-8
 set encoding=UTF-8
 set fileencodings=utf-8,ucs-bom,gbk,cp936,gb2312,gb18030
+
+"##### auto fcitx  ###########
+let g:input_toggle = 1
+function! Fcitx2en()
+    let s:input_status = system("fcitx-remote")
+    if s:input_status == 2
+        let g:input_toggle = 1
+        let l:a = system("fcitx-remote -c")
+    endif
+endfunction
+
+set ttimeoutlen=150
+"退出插入模式
+autocmd InsertLeave,CmdLineLeave * call Fcitx2en()
+
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+            \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+            \,sm:block-blinkwait175-blinkoff150-blinkon175
+

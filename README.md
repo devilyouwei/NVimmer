@@ -4,7 +4,9 @@ New vimmer repo, will replace the old vimmer, config totally based on NeoVim
 
 # NVimmer(CN)
 
-NVimmer 是新版的 Vimmer，正如 NeoVim 之于 Vim，NVimmer 的配置将会完全基于 NeoVim，目标仍然是配置一套简洁，快速，高效的 Mini IDE。
+NVimmer 是新版的 Vimmer，NVimmer 的配置将会完全基于 NeoVim 而不再是 Vim
+
+目标仍然是配置一套简洁，快速，高效的 Vim IDE。
 
 ## 适用于
 
@@ -20,9 +22,11 @@ NVimmer 是新版的 Vimmer，正如 NeoVim 之于 Vim，NVimmer 的配置将会
 
 ## 注意
 
-很抱歉，老的 Vimmer 即将停止更新！[https://github.com/devilyouwei/Vimmer](https://github.com/devilyouwei/Vimmer)
+很抱歉，老的 Vimmer 即将停止更新！
 
-配置文件目前仍然支持 Vim 编辑器，您可以使用该配置替代~/.vimrc，但出于稳定性和兼容性，建议使用 NeoVim
+[https://github.com/devilyouwei/Vimmer](https://github.com/devilyouwei/Vimmer)
+
+您可以使用 NVimmer 的 init.vim 配置 vim，但出于稳定性和兼容性，建议使用 NeoVim
 
 ## 让我们一起用 NeoVim 吧
 
@@ -30,9 +34,11 @@ NVimmer 是新版的 Vimmer，正如 NeoVim 之于 Vim，NVimmer 的配置将会
 
 至今，NeoVim 的迅速崛起，大量的 vim 老用户，新用户迁移到了 Neovim 阵营。
 
-作为 4 年多的 vim 忠实用户，在 ubuntu 上亲自尝试 NeoVim 之后，本人毅然决定将我的默认编辑器从 vim 迁移到 neovim 编辑器。
+作为 4 年多的 vim 忠实用户，在 ubuntu 上亲自尝试 NeoVim 之后，我决定使用 NeoVim 取代 Vim。
 
-伴随之，之前的 vimmer 项目也将停止更新支持，但维持 Vimmer 已有插件，配置的维护和更新，也仍然支持 bug 的修复，issue 的问答。未来所有的新特性，新插件，新配置只会在 NVimmer 这个 repo 中进行。
+伴随之，之前的 Vimmer 项目也将停止更新，但仍然支持 bug 的修复，issue 的讨论。
+
+未来所有的 Vim 新特性，新插件，新配置都会在 NVimmer 这个 repo 中进行。
 
 NVimmer 将会代替 Vimmer 成为我新的，活跃的 vim 配置。
 
@@ -63,13 +69,16 @@ sudo snap install --beta nvim --classic
 切换到克隆的 NVimmer 目录中，复制配置文件到用户目录下
 
 ```bash
-
+// 克隆NVimmer
 git clone https://github.com/devilyouwei/NVimmer.git
 
+// 切换到项目下
 cd NVimmer
 
+// 在用户目录下新建nvim配置目录
 mkdir ~/.config/nvim/
 
+// 分别复制init.vim，.eslintrc和.prettier配置文件到nvim配置目录以及用户目录下，注意这样才能使配置文件生效
 cp ./init.vim ~/.config/nvim/
 cp ./.eslintrc.json ~/
 cp ./.prettierrc.json ~/
@@ -79,11 +88,19 @@ cp ./.prettierrc.json ~/
 
 ```
 sudo apt install nodejs
+
+//或者
+curl -sL install-node.now.sh/lts | bash
+
 ```
 
-如果嫌 ubuntu 源版本太老，参考 node 官网安装最新版，本人的环境是 13
+如果嫌 ubuntu 源里的 node 版本太老，参考 node 官网安装最新版，本人的环境是 13
+
+[https://nodejs.org](https://nodejs.org/)
 
 **安装 Vim-Plug**
+
+Vim-Plug 是一个强大的 vim 插件管理器
 
 Linux
 
@@ -111,11 +128,13 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw
 :CocInstall coc-json
 :CocInstall coc-highlight
 :CocInstall coc-css
+:CocInstall coc-phpls
 :CocInstall coc-prettier
 // 微信小程序
 :CocInstall coc-wxml
 // TS和JS
 :CocInstall coc-tsserver
+// vue
 :CocInstall coc-vetur
 :CocInstall coc-angular
 ```
@@ -141,6 +160,7 @@ npm install -g eslint
 npm install -g prettier
 npm install -g eslint-plugin-prettier
 npm install -g eslint-config-prettier
+npm install vue-language-server -g
 ```
 
 4. 针对 tagbar 安装 ctags
@@ -149,13 +169,36 @@ npm install -g eslint-config-prettier
 sudo apt install ctags
 ```
 
+5. PHP 开发者
+
+```
+npm i intelephense -g
+```
+
+## 使用
+
+**快捷键**
+
+-   Emmet html 自动比和：ctrl+O auto create tags. Refer to 'Emmet'
+-   保存: F5
+-   保存并编译运行: F6
+-   格式化代码：F12
+-   清除空行: F2
+-   打开当前目录文件树: F3
+-   打开 Tagbar: F9 (需要 ctags)
+-   自动补全：Coc 自动补全插件，按 Tab 键可以自动补全
+-   buffer 切换：Ctrl+H，Ctrl+R，Ctrl+左键，Ctrl+右键
+-   Tab 切换：同上，Ctrl 换成 Shift
+
 ## 问题
 
--   PlugInstall 安装好后打开 nvim，coc 的方法 call 不到请检查你的 nvim 是不是低于 0.3.0，也可以输入:checkHealth 检查，清安装高于 0.3.0 的版本
+-   PlugInstall 安装好后打开 nvim，coc 的方法 call 不到，报错。请请检查你的 nvim 是不是低于 0.3.0，也可以输入:checkHealth 检查，清安装高于 0.3.0 的版本
 
 -   C#的 CS 文件第一次进入会要求安装 monoserver 用于自动补全和代码检查，选择 Yes
 
--   Nerd 字体无法显示，nerdtree 里都是乱码和方块，该问题是因为你没有安装 nerd 字体，并把 Gnome-terminal 字体更换成 nerd 字体，建议将/font 目录下的 MonacoNerd.ttf 安装到系统中，Monaco 字体真好看，并把 Gnome-terminal 字体改成 Monaco Nerd
+-   Nerd 字体无法显示，nerdtree 里都是乱码和方块，该问题是因为你没有安装 nerd 字体，并把 Terminal 字体更换成 nerd 字体，建议将/font 目录下的 MonacoNerd.ttf 安装到系统中，并把 Gnome-terminal 字体改成 Monaco Nerd。苹果的Monaco字体真好看！
+
+-   有些语言不能补全，检查是否安装上该语言的 LSP 服务器，上述有提到例如 php 的 intelephense
 
 ## 不想说再见 :sob:
 
@@ -165,8 +208,14 @@ sudo apt install ctags
 
 ## Examples
 
-![example](https://img-blog.csdnimg.cn/20200131123650515.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTQ0NjYxMDk=,size_16,color_FFFFFF,t_70)
+![example](./example/ex1)
 
-![example](https://img-blog.csdnimg.cn/20200131123934284.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTQ0NjYxMDk=,size_16,color_FFFFFF,t_70)
+![example](./example/ex2)
 
-![example](https://img-blog.csdnimg.cn/20200131124320930.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTQ0NjYxMDk=,size_16,color_FFFFFF,t_70)
+![example](./example/ex3)
+
+![example](./example/ex4)
+
+![example](./example/ex5)
+
+![example](./example/ex6)
