@@ -196,7 +196,7 @@ npm i intelephense -g
 
 -   C#的 CS 文件第一次进入会要求安装 monoserver 用于自动补全和代码检查，选择 Yes
 
--   Nerd 字体无法显示，nerdtree 里都是乱码和方块，该问题是因为你没有安装 nerd 字体，并把 Terminal 字体更换成 nerd 字体，建议将/font 目录下的 MonacoNerd.ttf 安装到系统中，并把 Gnome-terminal 字体改成 Monaco Nerd。苹果的Monaco字体真好看！
+-   Nerd 字体无法显示，nerdtree 里都是乱码和方块，该问题是因为你没有安装 nerd 字体，并把 Terminal 字体更换成 nerd 字体，建议将/font 目录下的 MonacoNerd.ttf 安装到系统中，并把 Gnome-terminal 字体改成 Monaco Nerd。苹果的 Monaco 字体真好看！
 
 -   有些语言不能补全，检查是否安装上该语言的 LSP 服务器，上述有提到例如 php 的 intelephense
 
@@ -208,14 +208,14 @@ npm i intelephense -g
 
 ## Examples
 
-![example](example/ex1)
+![example](example/ex1.png)
 
-![example](example/ex2)
+![example](example/ex2.png)
 
-![example](example/ex3)
+![example](example/ex3.png)
 
-![example](example/ex4)
+![example](example/ex4.png)
 
-![example](example/ex5)
+![example](example/ex5.png)
 
-![example](example/ex6)
+![example](example/ex6.png)
