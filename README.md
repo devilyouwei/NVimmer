@@ -208,14 +208,14 @@ npm i intelephense -g
 
 ## Examples
 
-![example](./example/ex1)
+![example](example/ex1)
 
-![example](./example/ex2)
+![example](example/ex2)
 
-![example](./example/ex3)
+![example](example/ex3)
 
-![example](./example/ex4)
+![example](example/ex4)
 
-![example](./example/ex5)
+![example](example/ex5)
 
-![example](./example/ex6)
+![example](example/ex6)
