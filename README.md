@@ -1,6 +1,10 @@
 # NVimmer(CN)
 
-一套简洁，快速，高效的 Vim IDE 配置。
+![logo](./example/logo.png)
+
+一套简洁，快速，高效的 Vim IDE 配置，适合全栈开发者。
+
+内置 Monaco Nerd 字体
 
 NVimmer 是新版的 Vimmer，NVimmer 的配置将会完全基于 NeoVim 而不再是 Vim
 
@@ -12,18 +16,12 @@ NVimmer 是新版的 Vimmer，NVimmer 的配置将会完全基于 NeoVim 而不�
 4. vue
 5. TypeScript
 6. PHP
-7. c/c++
+7. C/C++
 8. Markdown
-9. json
-10. wxml
+9. Json
+10. Wxml
 
-## 注意
-
-很抱歉，老的 Vimmer 即将停止更新！
-
-[https://github.com/devilyouwei/Vimmer](https://github.com/devilyouwei/Vimmer)
-
-您可以使用 NVimmer 的 init.vim 配置 vim，但出于稳定性和兼容性，建议使用 NeoVim
+Python 在未来会得到支持。
 
 ## 让我们一起用 NeoVim 吧
 
@@ -65,6 +63,8 @@ sudo snap install --beta nvim --classic
 
 切换到克隆的 NVimmer 目录中，复制配置文件到用户目录下
 
+For Linux
+
 ```bash
 // 克隆NVimmer
 git clone https://github.com/devilyouwei/NVimmer.git
@@ -73,10 +73,8 @@ git clone https://github.com/devilyouwei/NVimmer.git
 cd NVimmer
 
 // 在用户目录下新建nvim配置目录
-mkdir ~/.config/nvim/
+cp -rf ./nvim ~/.config/
 
-// 分别复制init.vim，.eslintrc和.prettier配置文件到nvim配置目录以及用户目录下，注意这样才能使配置文件生效
-cp ./init.vim ~/.config/nvim/
 cp ./.eslintrc.json ~/
 cp ./.prettierrc.json ~/
 ```
@@ -101,6 +99,7 @@ Vim-Plug 是一个强大的 vim 插件管理器
 
 Linux
 
+
 ```bash
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
@@ -108,6 +107,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw
 **插件安装**
 
 进入 nvim，输入:PlugInstall 安装所有插件
+
 
 **Coc 插件安装**
 
@@ -138,6 +138,8 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw
 
 **补充安装**
 
+以下选装，针对不同开发者可以自己定制，fullstack 也可以全装，试了下不会影响性能
+
 1. 针对 node 开发者
 
 ```bash
@@ -150,23 +152,27 @@ npm install -g neovim
 gem install neovim
 ```
 
-3. 针对前端和 JS 开发者
+3. 针对前端和 JS 开发者，eslint 扩展插件和格式化插件
 
 ```bash
 npm install -g eslint
 npm install -g prettier
+npm install -g eslint-plugin-vue
+npm install -g eslint-plugin-html
 npm install -g eslint-plugin-prettier
 npm install -g eslint-config-prettier
-npm install vue-language-server -g
+npm install -g vue-language-server
+npm install -g js-beautify
 ```
 
-4. 针对 tagbar 安装 ctags
+4. 针对 tagbar 安装 ctags，针对 autoformat 安装 astyle
 
 ```
 sudo apt install ctags
+sudo apt install astyle
 ```
 
-5. PHP 开发者
+5. PHP 开发者，intelephense 是 php 的 LSP，实现自动补全，查错等
 
 ```
 npm i intelephense -g
@@ -179,13 +185,13 @@ npm i intelephense -g
 -   Emmet html 自动比和：ctrl+O auto create tags. Refer to 'Emmet'
 -   保存: F5
 -   保存并编译运行: F6
--   格式化代码：F12
+-   格式化代码：F12 (需要 astyle，jsbeautify)
 -   清除空行: F2
 -   打开当前目录文件树: F3
 -   打开 Tagbar: F9 (需要 ctags)
 -   自动补全：Coc 自动补全插件，按 Tab 键可以自动补全
 -   buffer 切换：Ctrl+H，Ctrl+R，Ctrl+左键，Ctrl+右键
--   Tab 切换：同上，Ctrl 换成 Shift
+-   Tab 切换：同上，把 Ctrl 换成 Shift
 
 ## 问题
 
@@ -197,13 +203,15 @@ npm i intelephense -g
 
 -   有些语言不能补全，检查是否安装上该语言的 LSP 服务器，上述有提到例如 php 的 intelephense
 
+-   格式化不喜欢，请修改 coc-setting.json 或者直接在 nvim 中输入':CocConfig'
+
 ## 不想说再见 :sob:
 
 如果您是一个 Vim 的死忠粉，不想要迁移到 NeoVim，仍想要那一套精简高效的 Vim 配置，可以继续使用我的 Vimmer 的配置：
 
 [https://github.com/devilyouwei/Vimmer](https://github.com/devilyouwei/Vimmer)
 
-## Examples
+## Examples :tada: :tada: :tada:
 
 ![example](example/ex1.png)
 

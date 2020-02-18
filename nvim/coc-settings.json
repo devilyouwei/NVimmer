@@ -1,0 +1,44 @@
+{
+    "tsserver.trace.server": "verbose",
+
+    "vetur.trace.server": "verbose",
+    "vetur.format.enable": true,
+    "vetur.format.options.tabSize": 4,
+    "vetur.format.options.useTabs": false,
+    "vetur.validation.style": true,
+    "vetur.validation.script": true,
+    "vetur.validation.template": true,
+    "vetur.format.defaultFormatter.html": "prettyhtml",
+    "vetur.format.defaultFormatterOptions": {
+        "prettyhtml": {
+            "printWidth": 120,
+            "singleQuote": false,
+            "wrapAttributes": false,
+            "sortAttributes": true
+        }
+    },
+
+    "html.enable": true,
+    "html.trace.server": "verbose",
+    "html.format.enable": true,
+    "html.validate.html": true,
+    "html.validate.styles": true,
+    "html.validate.scripts": true,
+    "html.format.wrapLineLength": 120,
+    "html.format.endWithNewline": false,
+    "html.format.wrapAttributes": "auto",
+
+    "prettier.formatterPriority": -1,
+    "prettier.semi": false,
+    "prettier.useTabs": false,
+    "prettier.printWidth": 100,
+    "prettier.tabWidth": 4,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "none",
+    "prettier.jsxSingleQuote": true,
+    "prettier.jsxBracketSameLine": true,
+
+    "eslint.enable": true,
+    "eslint.run": "onType",
+    "eslint.autoFix": true
+}

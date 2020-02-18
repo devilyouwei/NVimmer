@@ -1,8 +1,9 @@
 {
-    "plugins": ["prettier"],
+    "plugins": ["prettier","vue","html"],
     "extends": [
         "plugin:vue/recommended",
         "plugin:prettier/recommended",
+        "plugin:html/recommended",
         "eslint:recommended"
     ],
     "rules": {

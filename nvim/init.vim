@@ -4,6 +4,9 @@ Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
 Plug 'majutsushi/tagbar', {'on':'TagbarToggle'}
+Plug 'Chiel92/vim-autoformat'
+Plug 'beanworks/vim-phpfmt'
+let g:phpfmt_standard = 'PSR2'
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -12,8 +15,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/indentLine'
 Plug 'udalov/kotlin-vim', {'for':'kotlin'}
-Plug 'pangloss/vim-javascript'
-Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript',{'for':['html','javascript','vue','php']}
+Plug 'othree/html5.vim',{'for':['html','xml','vue','php']}
+Plug 'mattn/emmet-vim',{'for':['html','xml','vue','php']}
+Plug 'alvan/vim-closetag',{'for':['html','xml','vue','php']}
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'leafgarland/typescript-vim', {'for':'typescript'}
 let g:typescript_indent_disable = 1
@@ -27,7 +32,6 @@ Plug 'leshill/vim-json', {'for':'json'}
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
-Plug 'scrooloose/syntastic'
 Plug 'chemzqm/wxapp.vim', {'for':['wxml','wxss','js']}
 Plug 'tomasr/molokai'
 Plug 'sickill/vim-monokai'
@@ -204,20 +208,8 @@ set termguicolors
 set re=1
 set lazyredraw
 set synmaxcol=128
+set t_Co=256
 syntax sync minlines=256
-
-"--------------------syntastic相关---------------------------------
-
-"检查语法错误
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
 
 "-------------------显示相关---------------------------------------
 set cul "高亮光标所在行
@@ -245,6 +237,8 @@ set expandtab
 set smarttab
 " 显示行号
 set number
+set showmode
+
 " 历史记录数
 set history=1000
 "搜索逐字符高亮
@@ -277,10 +271,14 @@ map <C-Right> :bp<CR>        "上一个缓冲区
 "去空行  
 nnoremap <F2> :g/^\s*$/d<CR> 
 
-"代码格式化
-nnoremap <F12> mqgg=G'q
+"代码格式化---------------------------------------------------------------------------------------
+noremap <F12> :Format<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-autocmd filetype javascript,typescript,css,less,scss,json,graphql,markdown,jsx,yaml nnoremap <buffer> <F12> :Prettier<CR>
+"前端主要使用Prettier美化
+autocmd filetype markdown,jsx,yaml nnoremap <buffer> <F12> :Prettier<CR>
+"编译型
+autocmd filetype cs,c,cpp noremap <buffer> <F12> :Autoformat<CR>
+
 
 
 "html标签自动补全
@@ -344,16 +342,25 @@ set autowrite
 "set noeb
 " 在处理未保存或只读文件的时候，弹出确认
 set confirm
+"禁止自动分行
+set nowrap
+set textwidth=120
+
 
 "禁止生成临时文件
 set noundofile
 set nobackup
 set nowritebackup
 set noswapfile
+
 "搜索忽略大小写
 set ignorecase
+set smartcase
 set linespace=0
+"set spell spelllang=en_us
 " 使回格键（backspace）正常处理indent, eol, start等
+set listchars=tab:»■,trail:■
+set list
 set backspace=2
 " 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
 set mouse=a
