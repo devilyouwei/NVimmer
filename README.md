@@ -1,12 +1,8 @@
-# NVimmer(EN)
-
-New vimmer repo, will replace the old vimmer, config totally based on NeoVim
-
 # NVimmer(CN)
 
-NVimmer 是新版的 Vimmer，NVimmer 的配置将会完全基于 NeoVim 而不再是 Vim
+一套简洁，快速，高效的 Vim IDE 配置。
 
-目标仍然是配置一套简洁，快速，高效的 Vim IDE。
+NVimmer 是新版的 Vimmer，NVimmer 的配置将会完全基于 NeoVim 而不再是 Vim
 
 ## 适用于
 
@@ -19,6 +15,7 @@ NVimmer 是新版的 Vimmer，NVimmer 的配置将会完全基于 NeoVim 而不�
 7. c/c++
 8. Markdown
 9. json
+10. wxml
 
 ## 注意
 

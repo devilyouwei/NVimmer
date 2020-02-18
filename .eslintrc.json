@@ -1,5 +1,10 @@
 {
     "plugins": ["prettier"],
+    "extends": [
+        "plugin:vue/recommended",
+        "plugin:prettier/recommended",
+        "eslint:recommended"
+    ],
     "rules": {
         "prettier/prettier": "error"
     }

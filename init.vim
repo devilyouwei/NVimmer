@@ -21,9 +21,7 @@ Plug 'isRuslan/vim-es6'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'posva/vim-vue', {'for':'vue'}
-let g:LanguageClient_serverCommands = {
-            \ 'vue': ['vls']
-            \ }
+let g:LanguageClient_serverCommands = { 'vue': ['vls'] }
 Plug 'vim-scripts/matchit.zip',{'for':['html','jsx','vue','xml']}
 Plug 'leshill/vim-json', {'for':'json'}
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -263,6 +261,9 @@ set viminfo+=!
 set iskeyword+=$,@,%,#,-,_
 set guifont=Monaco\ Bold\ 12
 
+filetype plugin on
+
+
 "tab, buffer快捷键配置----------------------------------------------------------------------------
 map <S-H> :tabp<CR>
 map <S-L> :tabn<CR>
@@ -272,34 +273,28 @@ map <C-H> :bn<CR>            "下一个缓冲区
 map <C-L> :bp<CR>        "上一个缓冲区
 map <C-Left> :bn<CR>            "下一个缓冲区
 map <C-Right> :bp<CR>        "上一个缓冲区
-"打开airline智能tab
-let g:airline#extensions#tabline#enabled = 1
-"set clipboard=unnamed
+
 "去空行  
 nnoremap <F2> :g/^\s*$/d<CR> 
 
 "代码格式化
-noremap <F12> gg=G
+nnoremap <F12> mqgg=G'q
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-autocmd filetype javascript,typescript,css,less,scss,json,graphql,markdown,vue,yaml,html noremap <F12> :Prettier<CR>
+autocmd filetype javascript,typescript,css,less,scss,json,graphql,markdown,jsx,yaml nnoremap <buffer> <F12> :Prettier<CR>
 
 
 "html标签自动补全
 map! <C-O> <C-Y>,
 "列出当前目录文件  
-map <F3> :NERDTreeToggle<CR>
-imap <F3> <ESC> :NERDTreeToggle<CR>
+nmap <F3> :NERDTreeToggle<CR>
 "tagbar
-map <F9> :TagbarToggle<CR>
-imap <F9> <ESC> :TagbarToggle<CR>
+nmap <F9> :TagbarToggle<CR>
 
 "按F5保存
-map <F5> :w<CR>
-imap <F5> <ESC> :w<CR>
+nmap <F5> :w<CR>
 
 "按F6编译运行
-map <F6> :call Compile()<CR>
-imap <F6> <ESC>:call Compile()<CR>
+nmap <F6> :call Compile()<CR>
 
 func! Compile()
     exec "w"
@@ -358,8 +353,6 @@ set noswapfile
 "搜索忽略大小写
 set ignorecase
 set linespace=0
-" 增强模式中的命令行自动完成操作
-set wildmenu
 " 使回格键（backspace）正常处理indent, eol, start等
 set backspace=2
 " 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
@@ -374,15 +367,25 @@ set fillchars=vert:\ ,stl:\ ,stlnc:\
 " 高亮显示匹配的括号
 set showmatch
 " 匹配括号高亮的时间（单位是十分之一秒）
-set matchtime=1
+set matchtime=5
 " 光标移动到buffer的顶部和底部时保持3行距离
-set scrolloff=3
+set scrolloff=5
 set autochdir "输出时只有文件名，不带./ ../等目录前缀(默认了执行％在当前的目录下)
 set termencoding=UTF-8
 set encoding=UTF-8
 set fileencodings=utf-8,ucs-bom,gbk,cp936,gb2312,gb18030
 
-"##### auto fcitx  ###########
+"在插入模式中使用Ctrl+v粘贴全局剪贴板内容
+imap <C-V> <Esc>"+gp
+nmap <C-V> "+gp
+
+"在Visual模式中使用Ctrl+c复制内容到全局剪贴板
+vnoremap <C-c> "+y
+
+"在Visual模式中使用Ctrl+x剪切内容到全局剪贴板
+vnoremap <C-x> "+x
+
+"##### 在fcitx输入法下，一旦进入vim normal模式会恢复到英文###########
 let g:input_toggle = 1
 function! Fcitx2en()
     let s:input_status = system("fcitx-remote")
@@ -395,7 +398,9 @@ endfunction
 set ttimeoutlen=150
 "退出插入模式
 autocmd InsertLeave,CmdLineLeave * call Fcitx2en()
+"#####################################################################
 
+"闪烁光标
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
             \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
             \,sm:block-blinkwait175-blinkoff150-blinkon175
