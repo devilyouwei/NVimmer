@@ -5,7 +5,7 @@
     "vueIndentScriptAndStyle": true,
     "tabWidth": 4,
     "semi": false,
-    "jsxSingleQuote": true,
+    "jsxSingleQuote": false,
     "bracketSpacing": true,
     "htmlWhitespaceSensitivity": "css",
     "singleQuote": true

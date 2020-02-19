@@ -15,19 +15,25 @@ Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/indentLine'
 Plug 'udalov/kotlin-vim', {'for':'kotlin'}
-Plug 'pangloss/vim-javascript',{'for':['html','javascript','vue','php']}
-Plug 'othree/html5.vim',{'for':['html','xml','vue','php']}
-Plug 'mattn/emmet-vim',{'for':['html','xml','vue','php']}
-Plug 'alvan/vim-closetag',{'for':['html','xml','vue','php']}
+Plug 'pangloss/vim-javascript'
+Plug 'othree/html5.vim',{'for':['html','xml','vue','php','javascript']}
+Plug 'mattn/emmet-vim',{'for':['html','xml','vue','php','javascript','typescript','typescript.tsx']}
+Plug 'alvan/vim-closetag',{'for':['html','xml','vue','php','javascript','typescript','typescript.tsx']}
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'leafgarland/typescript-vim', {'for':'typescript'}
-let g:typescript_indent_disable = 1
+Plug 'yuezk/vim-js'
+"Plug 'HerringtonDarkholme/yats.vim'
+"set re=1
+Plug 'leafgarland/typescript-vim'
+"let g:typescript_indent_disable = 1
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
 Plug 'isRuslan/vim-es6'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'posva/vim-vue', {'for':'vue'}
-let g:LanguageClient_serverCommands = { 'vue': ['vls'] }
-Plug 'vim-scripts/matchit.zip',{'for':['html','jsx','vue','xml']}
+Plug 'vim-scripts/matchit.zip',{'for':['html','javascript','typescript','typescript.tsx','vue','xml']}
 Plug 'leshill/vim-json', {'for':'json'}
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
@@ -275,7 +281,7 @@ nnoremap <F2> :g/^\s*$/d<CR>
 noremap <F12> :Format<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "前端主要使用Prettier美化
-autocmd filetype markdown,jsx,yaml,javascript,typescript nnoremap <buffer> <F12> :Prettier<CR>
+autocmd filetype markdown,yaml,javascript,typescript nnoremap <buffer> <F12> :Prettier<CR>
 "编译型
 autocmd filetype cs,c,cpp noremap <buffer> <F12> :Autoformat<CR>
 

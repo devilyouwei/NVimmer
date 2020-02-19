@@ -35,10 +35,9 @@
     "prettier.tabWidth": 4,
     "prettier.singleQuote": true,
     "prettier.trailingComma": "none",
-    "prettier.jsxSingleQuote": true,
+    "prettier.jsxSingleQuote": false,
     "prettier.jsxBracketSameLine": true,
 
-    "eslint.enable": true,
-    "eslint.run": "onType",
-    "eslint.autoFix": true
+    "eslint.autoFix": true,
+    "eslint.run": "onType"
 }

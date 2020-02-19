@@ -18,10 +18,11 @@ NVimmer 是新版的 Vimmer，NVimmer 的配置将会完全基于 NeoVim 而不�
 6. PHP
 7. C/C++
 8. Markdown
-9. Json
-10. Wxml
+9. JSON
+10. Wechat wxml
+11. react jsx/tsx **[new]**
 
-Python 在未来会得到支持。
+Python 在未来可能会得到支持。
 
 ## 让我们一起用 NeoVim 吧
 
@@ -99,7 +100,6 @@ Vim-Plug 是一个强大的 vim 插件管理器
 
 Linux
 
-
 ```bash
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
@@ -107,7 +107,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw
 **插件安装**
 
 进入 nvim，输入:PlugInstall 安装所有插件
-
 
 **Coc 插件安装**
 
