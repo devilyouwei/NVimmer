@@ -213,6 +213,8 @@ npm i intelephense -g
 
 ## Examples :tada: :tada: :tada:
 
+![example](example/example.png)
+
 ![example](example/ex1.png)
 
 ![example](example/ex2.png)
