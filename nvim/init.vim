@@ -275,7 +275,7 @@ nnoremap <F2> :g/^\s*$/d<CR>
 noremap <F12> :Format<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "前端主要使用Prettier美化
-autocmd filetype markdown,jsx,yaml nnoremap <buffer> <F12> :Prettier<CR>
+autocmd filetype markdown,jsx,yaml,javascript,typescript nnoremap <buffer> <F12> :Prettier<CR>
 "编译型
 autocmd filetype cs,c,cpp noremap <buffer> <F12> :Autoformat<CR>
 
@@ -298,23 +298,23 @@ func! Compile()
     exec "w"
     if &filetype == 'c'
         exec "!gcc % -o %<"
-        exec "! ./%<"
+        exec "!time ./%<"
     elseif &filetype == 'cpp'
         exec "!g++ % -o %<"
-        exec "! ./%<"
+        exec "!time ./%<"
     elseif &filetype == 'java' 
         exec "!javac %" 
-        exec "!java %<"
+        exec "!time java %<"
     elseif &filetype == 'kotlin' 
         exec "!kotlinc-native % -o %<" 
-        exec "! ./%<.kexe"
+        exec "!time ./%<.kexe"
     elseif &filetype == 'cs'
         exec "!mcs %"
-        exec "!mono %<.exe"
+        exec "!time mono %<.exe"
     elseif &filetype == 'python'
-        exec "!python3 %"
+        exec "!time python3 %"
     elseif &filetype == 'javascript'
-        exec "!node %"
+        exec "!time node %"
     endif
 endfunc
 
