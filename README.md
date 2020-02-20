@@ -46,7 +46,7 @@ Method 2: you can also use snap to install, snap can install candidate version, 
 sudo snap install --beta nvim --classic
 ```
 
-For installation other systems, please refer to the GitHub tutorial: [https://github.com/neovim/neovim/wiki/installing-neovim](https://github.com/neovim/neovim/wiki/installing-neovim)
+For installation on other systems, please refer to the GitHub tutorial: [https://github.com/neovim/neovim/wiki/installing-neovim](https://github.com/neovim/neovim/wiki/installing-neovim)
 
 **Clone NVimmer**
 
@@ -67,23 +67,19 @@ cp ./.prettierrc.json ~/
 
 **Install Nodejs**
 
-```
+```bash
 sudo apt install nodejs
-
 //or
-
 curl -sL install-node.now.sh/lts | bash
 ```
 
-If the node version in Ubuntu source is too old, please refer to the node official website to install the latest version. My environment is 13
-
-[https://nodejs.org](https://nodejs.org/)
+If the node version in Ubuntu source is too old, please refer to the node official website to install the latest version. Mine is 13 [https://nodejs.org](https://nodejs.org/)
 
 **Install vim-plug**
 
 'vim-plug' is a powerful vim plugins manager
 
-Linux
+For Linux
 
 ```bash
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -97,11 +93,11 @@ Enter nvim, input ':pluginstall' to install all plugins
 
 The following plugins are COC plugins.
 
-For automatically complete, automatically check errors, autoformat, color highlight and other ide functions, you can choose to install them according to your language needs.
+For auto complete, check errors/warnings, autoformat, color highlight and other ide functions, you can choose to install them according to your main language.
 
 Open nvim and enter the following command
 
-```
+```bash
 :CocInstall coc-html
 :CocInstall coc-eslint
 :CocInstall coc-snippets
@@ -153,14 +149,14 @@ npm install -g js-beautify
 
 -   Install 'Ctags' for tagbar and 'Astyle' for AutoFormat
 
-```
+```bash
 sudo apt install ctags
 sudo apt install astyle
 ```
 
 -   PHP developer, intelephense is PHP's LSP, which realizes automatic completion, error checking, etc
 
-```
+```bash
 npm i intelephense -g
 ```
 
@@ -261,17 +257,13 @@ cp ./.prettierrc.json ~/
 
 **安装 NodeJS**
 
-```
+```bash
 sudo apt install nodejs
-
 //或者
 curl -sL install-node.now.sh/lts | bash
-
 ```
 
-如果嫌 ubuntu 源里的 node 版本太老，参考 node 官网安装最新版，本人的环境是 13
-
-[https://nodejs.org](https://nodejs.org/)
+如果嫌 ubuntu 源里的 node 版本太老，参考 node 官网安装最新版，本人的环境是 13 [https://nodejs.org](https://nodejs.org/)
 
 **安装 Vim-Plug**
 
@@ -293,7 +285,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw
 
 打开 nvim，输入以下命令
 
-```
+```bash
 :CocInstall coc-html
 :CocInstall coc-eslint
 :CocInstall coc-snippets
@@ -345,14 +337,14 @@ npm install -g js-beautify
 
 4. 针对 tagbar 安装 ctags，针对 autoformat 安装 astyle
 
-```
+```bash
 sudo apt install ctags
 sudo apt install astyle
 ```
 
 5. PHP 开发者，intelephense 是 php 的 LSP，实现自动补全，查错等
 
-```
+```bash
 npm i intelephense -g
 ```
 

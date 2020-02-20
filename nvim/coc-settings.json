@@ -38,6 +38,11 @@
     "prettier.trailingComma": "none",
     "prettier.jsxSingleQuote": false,
     "prettier.jsxBracketSameLine": true,
+    //emmet
+    "emmet.includeLanguages": {
+        "vue": "html",
+        "javascript": "javascriptreact"
+    },
     //eslint,js
     "eslint.autoFix": true,
     "eslint.filetypes": [
