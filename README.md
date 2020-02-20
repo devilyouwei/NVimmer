@@ -10,7 +10,7 @@ NVimmer is a new version of [Vimmer](https://github.com/devilyouwei/Vimmer). The
 
 **Attention: NVimmer is going to replace Vimmer.**
 
-# Support
+## Support
 
 1. HTML CSS JS
 2. Java
