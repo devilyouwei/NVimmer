@@ -194,7 +194,10 @@ npm i intelephense -g
 
 ## 问题
 
--   PlugInstall 安装好后打开 nvim，coc 的方法 call 不到，报错。请请检查你的 nvim 是不是低于 0.3.0，也可以输入:checkHealth 检查，清安装高于 0.3.0 的版本
+-   PlugInstall 安装好后打开 nvim，coc 的方法 call 不到，报错。请请检查你的 nvim 是不是低于 0.3.0，也可以输入:checkHealth 检查，请安装高于 0.3.0 的版本
+
+-   关于浮动窗口，自动补全显示的详细文档解释小窗口，需要 0.4.0 以上的 neovim，这种情况下请使用 snap 安装，或者官网寻找安装 0.4.0
+    以上的方法
 
 -   C#的 CS 文件第一次进入会要求安装 monoserver 用于自动补全和代码检查，选择 Yes
 
@@ -202,7 +205,8 @@ npm i intelephense -g
 
 -   有些语言不能补全，检查是否安装上该语言的 LSP 服务器，上述有提到例如 php 的 intelephense
 
--   格式化不喜欢，请修改 coc-setting.json 或者直接在 nvim 中输入':CocConfig'
+-   格式化不喜欢，请修改 coc-setting.json 或者直接在 nvim 中输入':CocConfig'，另外.eslintrc.json 里是针对 prettier 格式化的
+    设置，也可以改
 
 ## 不想说再见 :sob:
 

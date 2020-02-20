@@ -5,8 +5,6 @@ Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
 Plug 'majutsushi/tagbar', {'on':'TagbarToggle'}
 Plug 'Chiel92/vim-autoformat'
-Plug 'beanworks/vim-phpfmt'
-let g:phpfmt_standard = 'PSR2'
 Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -16,6 +14,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/indentLine'
 Plug 'udalov/kotlin-vim', {'for':'kotlin'}
 Plug 'pangloss/vim-javascript'
+Plug 'shawncplus/php.vim',{'for':'php'}
 Plug 'othree/html5.vim',{'for':['html','xml','vue','php','javascript']}
 Plug 'mattn/emmet-vim',{'for':['html','xml','vue','php','javascript','typescript','typescript.tsx']}
 Plug 'alvan/vim-closetag',{'for':['html','xml','vue','php','javascript','typescript','typescript.tsx']}
@@ -308,11 +307,11 @@ func! Compile()
     elseif &filetype == 'cpp'
         exec "!g++ % -o %<"
         exec "!time ./%<"
-    elseif &filetype == 'java' 
-        exec "!javac %" 
+    elseif &filetype == 'java'
+        exec "!javac %"
         exec "!time java %<"
-    elseif &filetype == 'kotlin' 
-        exec "!kotlinc-native % -o %<" 
+    elseif &filetype == 'kotlin'
+        exec "!kotlinc-native % -o %<"
         exec "!time ./%<.kexe"
     elseif &filetype == 'cs'
         exec "!mcs %"
@@ -321,6 +320,8 @@ func! Compile()
         exec "!time python3 %"
     elseif &filetype == 'javascript'
         exec "!time node %"
+    elseif &filetype == 'php'
+        exec "!time php %"
     endif
 endfunc
 

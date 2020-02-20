@@ -1,6 +1,7 @@
 {
+    //tsserver
     "tsserver.trace.server": "verbose",
-
+    //vue
     "vetur.trace.server": "verbose",
     "vetur.format.enable": true,
     "vetur.format.options.tabSize": 4,
@@ -17,7 +18,7 @@
             "sortAttributes": true
         }
     },
-
+    //html
     "html.enable": true,
     "html.trace.server": "verbose",
     "html.format.enable": true,
@@ -27,7 +28,7 @@
     "html.format.wrapLineLength": 120,
     "html.format.endWithNewline": false,
     "html.format.wrapAttributes": "auto",
-
+    //prettier
     "prettier.formatterPriority": -1,
     "prettier.semi": false,
     "prettier.useTabs": false,
@@ -37,7 +38,11 @@
     "prettier.trailingComma": "none",
     "prettier.jsxSingleQuote": false,
     "prettier.jsxBracketSameLine": true,
-
+    //eslint,js
     "eslint.autoFix": true,
+    "eslint.filetypes": [
+        "javascript",
+        "javascriptreact"
+    ],
     "eslint.run": "onType"
 }
