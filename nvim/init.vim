@@ -16,17 +16,19 @@ Plug 'udalov/kotlin-vim', {'for':'kotlin'}
 Plug 'pangloss/vim-javascript'
 Plug 'shawncplus/php.vim',{'for':'php'}
 Plug 'othree/html5.vim',{'for':['html','xml','vue','php','javascript']}
-Plug 'mattn/emmet-vim',{'for':['html','xml','vue','php','javascript','typescript','typescript.tsx']}
-Plug 'alvan/vim-closetag',{'for':['html','xml','vue','php','javascript','typescript','typescript.tsx']}
+Plug 'mattn/emmet-vim',{'for':['html','xml','vue','php','javascript','typescript','typescript.tsx','javascript.jsx']}
+Plug 'alvan/vim-closetag',{'for':['html','xml','vue','php','javascript','typescript','typescript.tsx','javascript.jsx']}
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'yuezk/vim-js'
-"Plug 'HerringtonDarkholme/yats.vim'
-"set re=1
 Plug 'leafgarland/typescript-vim'
-"let g:typescript_indent_disable = 1
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'mxw/vim-jsx' "plugin for jsx, but recommend use js instead of jsx file
+let g:typescript_indent_disable = 1
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
+"Plug 'neoclide/vim-jsx-improve'
+"Plug 'HerringtonDarkholme/yats.vim'
+
+"syntax sync fromstart
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
 Plug 'isRuslan/vim-es6'
 Plug 'hail2u/vim-css3-syntax'

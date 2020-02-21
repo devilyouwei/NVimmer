@@ -22,7 +22,7 @@ NVimmer is a new version of [Vimmer](https://github.com/devilyouwei/Vimmer). The
 8. Markdown
 9. JSON
 10. Wechat wxml
-11. react jsx/tsx **[new]**
+11. react js/jsx/tsx **[new]** (recommend js and tsx, not use jsx)
 
 Python may be supported in the future.
 
