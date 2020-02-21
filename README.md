@@ -22,7 +22,7 @@ NVimmer is a new version of [Vimmer](https://github.com/devilyouwei/Vimmer). The
 8. Markdown
 9. JSON
 10. Wechat wxml
-11. react js/jsx/tsx **[new]** (recommend js and tsx, not use jsx)
+11. react js/jsx/tsx **[new]** (recommend js and tsx, instead of jsx)
 
 Python may be supported in the future.
 
@@ -378,6 +378,17 @@ npm i intelephense -g
 
 -   格式化不喜欢，请修改 coc-setting.json 或者直接在 nvim 中输入':CocConfig'，另外.eslintrc.json 里是针对 prettier 格式化的
     设置，也可以改
+
+-   "System limit for number of file watchers reached"
+
+```
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+sudo sysctl --system
+```
+
+I give up the jsx file support, it's not a good practise, please use js instead of jsx.
+
+File tsx works perfect!
 
 ## 不想说再见 :sob:
 

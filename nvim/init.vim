@@ -21,11 +21,11 @@ Plug 'alvan/vim-closetag',{'for':['html','xml','vue','php','javascript','typescr
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'mxw/vim-jsx' "plugin for jsx, but recommend use js instead of jsx file
-let g:typescript_indent_disable = 1
+"Plug 'mxw/vim-jsx' "plugin for jsx, but useless
+let g:typescript_indent_disable = 0
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
-"Plug 'neoclide/vim-jsx-improve'
+Plug 'neoclide/vim-jsx-improve'
 "Plug 'HerringtonDarkholme/yats.vim'
 
 "syntax sync fromstart
@@ -282,7 +282,7 @@ nnoremap <F2> :g/^\s*$/d<CR>
 noremap <F12> :Format<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "前端主要使用Prettier美化
-autocmd filetype markdown,yaml,javascript,typescript nnoremap <buffer> <F12> :Prettier<CR>
+autocmd filetype markdown,yaml,typescript nnoremap <buffer> <F12> :Prettier<CR>
 "编译型
 autocmd filetype cs,c,cpp noremap <buffer> <F12> :Autoformat<CR>
 
