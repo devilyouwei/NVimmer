@@ -282,7 +282,7 @@ nnoremap <F2> :g/^\s*$/d<CR>
 noremap <F12> :Format<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "前端主要使用Prettier美化
-autocmd filetype markdown,yaml,typescript nnoremap <buffer> <F12> :Prettier<CR>
+autocmd filetype markdown,css,yaml,typescript nnoremap <buffer> <F12> :Prettier<CR>
 "编译型
 autocmd filetype cs,c,cpp noremap <buffer> <F12> :Autoformat<CR>
 
@@ -341,6 +341,7 @@ endfunc
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " 设置当文件被改动时自动载入
 set autoread
+au FocusGained * :checktime
 " quickfix模式
 autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
 "代码补全 
@@ -411,9 +412,9 @@ function! Fcitx2en()
     endif
 endfunction
 
-set ttimeoutlen=150
+"set ttimeoutlen=150
 "退出插入模式
-autocmd InsertLeave,CmdLineLeave * call Fcitx2en()
+"autocmd InsertLeave,CmdLineLeave * call Fcitx2en()
 "#####################################################################
 
 "闪烁光标
