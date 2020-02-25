@@ -1,11 +1,31 @@
 "vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch':'release'}
+let g:coc_global_extensions=[
+            \'coc-omnisharp',
+            \'coc-html',
+            \'coc-eslint',
+            \'coc-snippets',
+            \'coc-pairs',
+            \'coc-emmet',
+            \'coc-java',
+            \'coc-json',
+            \'coc-highlight',
+            \'coc-css',
+            \'coc-phpls',
+            \'coc-prettier',
+            \'coc-wxml',
+            \'coc-tsserver',
+            \'coc-vetur',
+            \'coc-angular']
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
 Plug 'majutsushi/tagbar', {'on':'TagbarToggle'}
 Plug 'Chiel92/vim-autoformat'
+Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
+"Plug 'OrangeT/vim-csharp'
+Plug 'sheerun/vim-polyglot'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 Plug 'jreybert/vimagit'
@@ -27,8 +47,6 @@ Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neoclide/vim-jsx-improve'
 "Plug 'HerringtonDarkholme/yats.vim'
-
-"syntax sync fromstart
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
 Plug 'isRuslan/vim-es6'
 Plug 'hail2u/vim-css3-syntax'
@@ -41,7 +59,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'chemzqm/wxapp.vim', {'for':['wxml','wxss','js']}
 Plug 'tomasr/molokai'
-Plug 'sickill/vim-monokai'
 Plug 'OmniSharp/omnisharp-vim', {'for':'cs'}
 "彩虹括号
 Plug 'kien/rainbow_parentheses.vim'
@@ -275,19 +292,18 @@ map <C-L> :bp<CR>        "上一个缓冲区
 map <C-Left> :bn<CR>            "下一个缓冲区
 map <C-Right> :bp<CR>        "上一个缓冲区
 
-"去空行  
-nnoremap <F2> :g/^\s*$/d<CR> 
 
 "代码格式化---------------------------------------------------------------------------------------
-noremap <F12> :Format<CR>
+noremap <F12> :syntax sync fromstart<CR>:Format<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "前端主要使用Prettier美化
-autocmd filetype markdown,css,yaml,typescript nnoremap <buffer> <F12> :Prettier<CR>
+autocmd filetype markdown,css,yaml,typescript,javascript nnoremap <buffer> <F12> :Prettier<CR>
 "编译型
 autocmd filetype cs,c,cpp noremap <buffer> <F12> :Autoformat<CR>
 
-
-
+"常用快捷键---------------------------------------------------------------------------------------
+"去空行  
+nnoremap <F2> :g/^\s*$/d<CR> 
 "html标签自动补全
 map! <C-O> <C-Y>,
 "列出当前目录文件  
@@ -296,10 +312,10 @@ nmap <F3> :NERDTreeToggle<CR>
 nmap <F9> :TagbarToggle<CR>
 
 "按F5保存
-nmap <F5> :w<CR>
+nmap <F5> :syntax sync fromstart<CR>:w<CR>
 
 "按F6编译运行
-nmap <F6> :call Compile()<CR>
+nmap <F6> :syntax sync fromstart<CR>:call Compile()<CR>
 
 func! Compile()
     exec "w"
@@ -412,7 +428,7 @@ function! Fcitx2en()
     endif
 endfunction
 
-"set ttimeoutlen=150
+set ttimeoutlen=150
 "退出插入模式
 "autocmd InsertLeave,CmdLineLeave * call Fcitx2en()
 "#####################################################################

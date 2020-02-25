@@ -29,7 +29,6 @@
     "html.format.endWithNewline": false,
     "html.format.wrapAttributes": "auto",
     //prettier
-    "prettier.formatterPriority": -1,
     "prettier.semi": false,
     "prettier.useTabs": false,
     "prettier.printWidth": 100,
