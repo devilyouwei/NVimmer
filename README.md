@@ -14,7 +14,7 @@ NVimmer is a new version of [Vimmer](https://github.com/devilyouwei/Vimmer). The
 
 1. HTML CSS JS
 2. Java
-3. C#
+3. C# **[enhanced]**
 4. vue
 5. TypeScript
 6. PHP
@@ -22,7 +22,7 @@ NVimmer is a new version of [Vimmer](https://github.com/devilyouwei/Vimmer). The
 8. Markdown
 9. JSON
 10. Wechat wxml
-11. react js/jsx/tsx **[new]** (recommend js and tsx, instead of jsx)
+11. react js/jsx/tsx **[new]**
 
 Python may be supported in the future.
 
@@ -108,6 +108,7 @@ Open nvim and enter the following command
 :CocInstall coc-highlight
 :CocInstall coc-css
 :CocInstall coc-phpls
+:CocInstall coc-omnisharp
 :CocInstall coc-prettier
 //Wechat applet
 :CocInstall coc-wxml
@@ -187,7 +188,7 @@ NVimmer 是新版的 Vimmer，NVimmer 的配置将会完全基于 NeoVim 而不�
 
 1. HTML CSS JS
 2. Java
-3. C#
+3. C# **[enhanced]**
 4. vue
 5. TypeScript
 6. PHP
@@ -296,6 +297,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw
 :CocInstall coc-highlight
 :CocInstall coc-css
 :CocInstall coc-phpls
+:CocInstall coc-omnisharp
 :CocInstall coc-prettier
 // 微信小程序
 :CocInstall coc-wxml
