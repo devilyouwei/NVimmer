@@ -1,6 +1,7 @@
 "vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch':'release'}
+Plug 'tyru/caw.vim'
 let g:coc_global_extensions=[
             \'coc-omnisharp',
             \'coc-html',
@@ -17,15 +18,15 @@ let g:coc_global_extensions=[
             \'coc-wxml',
             \'coc-tsserver',
             \'coc-vetur',
-            \'coc-angular']
+            \'coc-angular'
+            \]
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
+Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar', {'on':'TagbarToggle'}
 Plug 'Chiel92/vim-autoformat'
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
-"Plug 'OrangeT/vim-csharp'
-Plug 'sheerun/vim-polyglot'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 Plug 'jreybert/vimagit'
@@ -33,33 +34,40 @@ Plug 'tpope/vim-fugitive'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/indentLine'
 Plug 'udalov/kotlin-vim', {'for':'kotlin'}
-Plug 'pangloss/vim-javascript'
+Plug 'uiiaoo/java-syntax.vim', {'for':'java'}
 Plug 'shawncplus/php.vim',{'for':'php'}
 Plug 'othree/html5.vim',{'for':['html','xml','vue','php','javascript']}
 Plug 'mattn/emmet-vim',{'for':['html','xml','vue','php','javascript','typescript','typescript.tsx','javascript.jsx']}
 Plug 'alvan/vim-closetag',{'for':['html','xml','vue','php','javascript','typescript','typescript.tsx','javascript.jsx']}
 Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'leafgarland/typescript-vim'
-"Plug 'peitalin/vim-jsx-typescript'
-"Plug 'mxw/vim-jsx' "plugin for jsx, but useless
-let g:typescript_indent_disable = 0
+Plug 'tpope/vim-surround'
+Plug 'pangloss/vim-javascript',{'for':'javascript'}
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'isRuslan/vim-es6'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
-Plug 'neoclide/vim-jsx-improve'
 Plug 'HerringtonDarkholme/yats.vim'
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
-Plug 'isRuslan/vim-es6'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'posva/vim-vue', {'for':'vue'}
-Plug 'vim-scripts/matchit.zip',{'for':['html','javascript','typescript','typescript.tsx','vue','xml']}
+Plug 'vim-scripts/matchit.zip'
 Plug 'leshill/vim-json', {'for':'json'}
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'chemzqm/wxapp.vim', {'for':['wxml','wxss','js']}
-Plug 'tomasr/molokai'
 Plug 'OmniSharp/omnisharp-vim', {'for':'cs'}
+Plug 'posva/vim-vue',{'for':'vue'}
+let g:vue_pre_processors = []
+Plug 'sheerun/vim-polyglot'
+let g:polyglot_disabled = [
+            \'css',
+            \'markdown',
+            \'vue',
+            \'html',
+            \'typescript',
+            \'kotlin',
+            \'reactjavascript',
+            \'reacttypescript'
+            \]
 "彩虹括号
 Plug 'kien/rainbow_parentheses.vim'
 let g:rbpt_colorpairs = [
@@ -87,7 +95,6 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 au Syntax * RainbowParenthesesLoadChevrons
-
 call plug#end()
 
 filetype on

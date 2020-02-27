@@ -12,7 +12,7 @@
     "vetur.format.defaultFormatter.html": "prettyhtml",
     "vetur.format.defaultFormatterOptions": {
         "prettyhtml": {
-            "printWidth": 120,
+            "printWidth": 100,
             "singleQuote": false,
             "wrapAttributes": false,
             "sortAttributes": true
@@ -25,10 +25,11 @@
     "html.validate.html": true,
     "html.validate.styles": true,
     "html.validate.scripts": true,
-    "html.format.wrapLineLength": 120,
+    "html.format.wrapLineLength": 100,
     "html.format.endWithNewline": false,
     "html.format.wrapAttributes": "auto",
     //prettier
+    "prettier.formatterPriority": -1,
     "prettier.semi": false,
     "prettier.useTabs": false,
     "prettier.printWidth": 100,
@@ -44,10 +45,6 @@
     },
     //eslint,js
     "eslint.autoFix": true,
-    "eslint.filetypes": [
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx"
-    ],
+    "eslint.filetypes": ["javascript", "javascriptreact", "javascript.jsx"],
     "eslint.run": "onType"
 }
