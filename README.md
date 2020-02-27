@@ -182,7 +182,7 @@ npm i intelephense -g
 -   Open current directory file tree: F3
 -   Open tagbar: F9 (ctags required)
 -   Auto completion: COC auto completion plug-in, press tab to auto complete
--   Buffer switch: Ctrl + H, Ctrl + R, Ctrl + left, Ctrl + right
+-   Buffer switch: Ctrl + H, Ctrl + L, Ctrl + left, Ctrl + right
 -   Tab switch: as above, change Ctrl to shift
 
 ## Examples :tada: :tada: :tada:

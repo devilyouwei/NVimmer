@@ -196,7 +196,7 @@ npm i intelephense -g
 -   打开当前目录文件树: F3
 -   打开 Tagbar: F9 (需要 ctags)
 -   自动补全：Coc 自动补全插件，按 Tab 键可以自动补全
--   buffer 切换：Ctrl+H，Ctrl+R，Ctrl+左键，Ctrl+右键
+-   buffer 切换：Ctrl+H，Ctrl+L，Ctrl+左键，Ctrl+右键
 -   Tab 切换：同上，把 Ctrl 换成 Shift
 
 ## 问题
