@@ -55,7 +55,10 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'chemzqm/wxapp.vim', {'for':['wxml','wxss','js']}
 Plug 'OmniSharp/omnisharp-vim', {'for':'cs'}
+"Plug 'OrangeT/vim-csharp', {'for':'cs'}
+Plug 'w0rp/ale',{'for':'cs'}
 Plug 'posva/vim-vue',{'for':'vue'}
+Plug 'hail2u/vim-css3-syntax'
 let g:vue_pre_processors = []
 Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = [
@@ -63,6 +66,7 @@ let g:polyglot_disabled = [
             \'markdown',
             \'vue',
             \'html',
+            \'javascript',
             \'typescript',
             \'kotlin',
             \'reactjavascript',
@@ -96,6 +100,8 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 au Syntax * RainbowParenthesesLoadChevrons
 call plug#end()
+
+"------------------------------coc.nvim---------------------------------------
 
 filetype on
 
@@ -213,6 +219,84 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
+"------------------------------coc.nvim---------------------------------------------
+"
+"
+"-----------------------------omnisharp----------------------------------------------
+filetype indent plugin on
+" Use the stdio OmniSharp-roslyn server
+let g:OmniSharp_server_stdio = 1
+" Set the type lookup function to use the preview window instead of echoing it
+"let g:OmniSharp_typeLookupInPreview = 1
+" Timeout in seconds to wait for a response from the server
+let g:OmniSharp_timeout = 5
+" Don't autoselect first omnicomplete option, show options even if there is only
+" one (so the preview documentation is accessible). Remove 'preview' if you
+" don't want to see any documentation whatsoever.
+set completeopt=longest,menuone,preview
+
+" Fetch full documentation during omnicomplete requests.
+" By default, only Type/Method signatures are fetched. Full documentation can
+" still be fetched when you need it with the :OmniSharpDocumentation command.
+let g:omnicomplete_fetch_full_documentation = 1
+set previewheight=5
+" Tell ALE to use OmniSharp for linting C# files, and no other linters.
+let g:ale_linters = { 'cs': ['OmniSharp'] }
+
+augroup omnisharp_commands
+    autocmd!
+
+    " Show type information automatically when the cursor stops moving.
+    " Note that the type is echoed to the Vim command line, and will overwrite
+    " any other messages in this space including e.g. ALE linting messages.
+    autocmd CursorHold *.cs OmniSharpTypeLookup
+
+    " The following commands are contextual, based on the cursor position.
+    autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbol<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
+
+    " Finds members in the current buffer
+    autocmd FileType cs nnoremap <buffer> <Leader>fm :OmniSharpFindMembers<CR>
+
+    autocmd FileType cs nnoremap <buffer> <Leader>fx :OmniSharpFixUsings<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>tt :OmniSharpTypeLookup<CR>
+    autocmd FileType cs nnoremap <buffer> <Leader>dc :OmniSharpDocumentation<CR>
+    autocmd FileType cs nnoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
+    autocmd FileType cs inoremap <buffer> <C-\> <C-o>:OmniSharpSignatureHelp<CR>
+
+    " Navigate up and down by method/property/field
+    autocmd FileType cs nnoremap <buffer> <C-k> :OmniSharpNavigateUp<CR>
+    autocmd FileType cs nnoremap <buffer> <C-j> :OmniSharpNavigateDown<CR>
+
+    " Find all code errors/warnings for the current solution and populate the quickfix window
+    autocmd FileType cs nnoremap <buffer> <Leader>cc :OmniSharpGlobalCodeCheck<CR>
+augroup END
+
+" Contextual code actions (uses fzf, CtrlP or unite.vim when available)
+nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
+" Run code actions with text selected in visual mode to extract method
+xnoremap <Leader><Space> :call OmniSharp#GetCodeActions('visual')<CR>
+
+" Rename with dialog
+nnoremap <Leader>nm :OmniSharpRename<CR>
+nnoremap <F2> :OmniSharpRename<CR>
+" Rename without dialog - with cursor on the symbol to rename: `:Rename newname`
+command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
+
+nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
+
+" Start the omnisharp server for the current solution
+nnoremap <Leader>ss :OmniSharpStartServer<CR>
+nnoremap <Leader>sp :OmniSharpStopServer<CR>
+
+"-----------------------------omnisharp--------------------------------------------------
+
+
+
+
+"vim基础设置-----------------------------------------------------------------------------
 if has("gui_running")
     au GUIEnter * simalt ~x " 窗口启动时自动最大化
     set guioptions-=m " 隐藏菜单栏
@@ -304,7 +388,7 @@ map <C-Right> :bp<CR>        "上一个缓冲区
 noremap <F12> :syntax sync fromstart<CR>:Format<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "前端主要使用Prettier美化
-autocmd filetype markdown,css,yaml,typescript nnoremap <buffer> <F12> :Prettier<CR>
+autocmd filetype markdown,css,yaml,typescript,vue nnoremap <buffer> <F12> :Prettier<CR>
 "编译型
 autocmd filetype cs,c,cpp noremap <buffer> <F12> :Autoformat<CR>
 
