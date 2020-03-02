@@ -1,9 +1,9 @@
 {
     //tsserver
-    "tsserver.trace.server": "verbose",
+    "javascript.validate.enable": false, //use eslint to check js
+
     //vue
-    "vetur.trace.server": "verbose",
-    "vetur.format.enable": true,
+    "vetur.format.enable": false,
     "vetur.format.options.tabSize": 4,
     "vetur.format.options.useTabs": false,
     "vetur.validation.style": true,
@@ -18,9 +18,12 @@
             "sortAttributes": true
         }
     },
+
+    //json
+    "json.format.enable": false,
+
     //html
     "html.enable": true,
-    "html.trace.server": "verbose",
     "html.format.enable": true,
     "html.validate.html": true,
     "html.validate.styles": true,
@@ -28,6 +31,7 @@
     "html.format.wrapLineLength": 100,
     "html.format.endWithNewline": false,
     "html.format.wrapAttributes": "auto",
+
     //prettier
     //"prettier.formatterPriority": -1,
     "prettier.semi": false,
@@ -38,13 +42,15 @@
     "prettier.trailingComma": "none",
     "prettier.jsxSingleQuote": false,
     "prettier.jsxBracketSameLine": true,
+
     //emmet
     "emmet.includeLanguages": {
         "vue": "html",
         "javascript": "javascriptreact"
     },
+
     //eslint,js
-    "eslint.autoFix": true,
-    "eslint.filetypes": ["javascript", "javascriptreact", "javascript.jsx"],
+    "eslint.autoFixOnSave": true,
+    "eslint.filetypes": ["javascript", "javascriptreact", "javascript.jsx", "html", "vue"],
     "eslint.run": "onType"
 }

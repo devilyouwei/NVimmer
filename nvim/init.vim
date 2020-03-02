@@ -1,7 +1,6 @@
 "vim-plug
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch':'release'}
-Plug 'tyru/caw.vim'
 let g:coc_global_extensions=[
             \'coc-omnisharp',
             \'coc-html',
@@ -18,11 +17,13 @@ let g:coc_global_extensions=[
             \'coc-wxml',
             \'coc-tsserver',
             \'coc-vetur',
+            \'coc-stylelint',
             \'coc-angular'
             \]
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
 Plug 'tomasr/molokai'
+Plug 'sickill/vim-monokai'
 Plug 'majutsushi/tagbar', {'on':'TagbarToggle'}
 Plug 'Chiel92/vim-autoformat'
 Plug 'jiangmiao/auto-pairs'

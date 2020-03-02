@@ -96,6 +96,8 @@ curl -sL install-node.now.sh/lts | bash
 
 如果嫌 ubuntu 源里的 node 版本太老，参考 node 官网安装最新版，本人的环境是 13
 
+墙裂推荐使用 [nvm](https://github.com/nvm-sh/nvm) 来安装和管理 nodejs，更加清洁和方便，还能随便改版本
+
 [https://nodejs.org](https://nodejs.org/)
 
 **安装 Vim-Plug**
@@ -131,6 +133,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw
 :CocInstall coc-highlight
 :CocInstall coc-css
 :CocInstall coc-phpls
+:CocInstall coc-stylelint
 :CocInstall coc-omnisharp
 :CocInstall coc-prettier
 // 微信小程序
@@ -158,18 +161,17 @@ npm install -g neovim
 gem install neovim
 ```
 
-3. 针对前端和 JS 开发者，eslint 扩展插件和格式化插件
+3. 针对前端和 JS 开发者，全局安装 eslint
 
 ```bash
 npm install -g eslint
-npm install -g prettier
-npm install -g eslint-plugin-vue
-npm install -g eslint-plugin-html
-npm install -g eslint-plugin-prettier
-npm install -g eslint-config-prettier
-npm install -g vue-language-server
-npm install -g js-beautify
 ```
+
+针对各种先进的前端框架，例如 vue,react 等，请将他们的 eslint-plugin 安装在项目目录下，不要全局安装任何 eslint 的 plugin，例如什么 eslint-plugin-prettier，
+，也不要在系统 home 下的.eslintrc.json 中配置这些 plugin，coc-eslint 找不到他们会报错。
+
+如需用到这些 lint 插件，正确的做法应该是在开发项目中配置 package.json 或者 eslintrc 文件来配置规则，然后使用'npm install'局部安装到项目中，
+这样在项目中用 neovim 打开对应的文件就会自动 lint 他们了
 
 4. 针对 tagbar 安装 ctags，针对 autoformat 安装 astyle
 
@@ -178,17 +180,11 @@ sudo apt install ctags
 sudo apt install astyle
 ```
 
-5. PHP 开发者，intelephense 是 php 的 LSP，实现自动补全，查错等
-
-```bash
-npm i intelephense -g
-```
-
 ## 使用
 
 **快捷键**
 
--   Emmet html 自动比和：ctrl+O auto create tags. Refer to 'Emmet'
+-   Emmet html 自动生成闭合html标签：Ctrl-O 参考'Emmet'官网用法
 -   保存: F5
 -   保存并编译运行: F6
 -   格式化代码：F12 (需要 astyle，jsbeautify)
@@ -210,7 +206,7 @@ npm i intelephense -g
 
 -   Nerd 字体无法显示，nerdtree 里都是乱码和方块，该问题是因为你没有安装 nerd 字体，并把 Terminal 字体更换成 nerd 字体，建议将/font 目录下的 MonacoNerd.ttf 安装到系统中，并把 Gnome-terminal 字体改成 Monaco Nerd。苹果的 Monaco 字体真好看！
 
--   有些语言不能补全，检查是否安装上该语言的 LSP 服务器，上述有提到例如 php 的 intelephense
+-   浮动窗口卡在那里关不掉，请使用 c-w,o 手动清楚遮挡的浮动窗口
 
 -   格式化不喜欢，请修改 coc-setting.json 或者直接在 nvim 中输入':CocConfig'，另外.eslintrc.json 里是针对 prettier 格式化的
     设置，也可以改

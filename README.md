@@ -81,11 +81,13 @@ curl -sL install-node.now.sh/lts | bash
 
 If the node version in Ubuntu source is too old, please refer to the node official website to install the latest version. Mine is 13
 
+I strongly recommend to use the tool [nvm](https://github.com/nvm-sh/nvm) to manage your nodejs!
+
 [https://nodejs.org](https://nodejs.org/)
 
 **Install vim-plug**
 
-'vim-plug' is a powerful vim plugins manager
+'vim-plug' is a powerful vim plugins manager!
 
 For Linux
 
@@ -104,7 +106,7 @@ The following plugins are COC plugins.
 For auto complete, check errors/warnings, autoformat, color highlight and other ide functions, you can choose to install them according to your main language.
 
 The following plugins will be installed automotically when you open NeoVim(because I config them in init.vim). Of course, you can input the following commands to install them
-manually again.
+manually again in nvim or remove them from init.vim.
 
 ```bash
 :CocInstall coc-html
@@ -117,6 +119,7 @@ manually again.
 :CocInstall coc-highlight
 :CocInstall coc-css
 :CocInstall coc-phpls
+:CocInstall coc-stylelint
 :CocInstall coc-omnisharp
 :CocInstall coc-prettier
 //Wechat applet
@@ -144,18 +147,19 @@ npm install -g neovim
 gem install neovim
 ```
 
--   For front-end and JS developers, eslint extension and formatting plug-in
+-   For front-end and JS developers, must install eslint!
 
 ```bash
 npm install -g eslint
-npm install -g prettier
-npm install -g eslint-plugin-vue
-npm install -g eslint-plugin-html
-npm install -g eslint-plugin-prettier
-npm install -g eslint-config-prettier
-npm install -g vue-language-server
-npm install -g js-beautify
 ```
+
+I provide only the basic 'eslint:recommended' lint rules globally in ~/.eslintrc.json and it works globally!
+
+If you are using vue, html, react in your projects and want to lint such files.
+
+Install the eslint-plugins(such as eslint-plugin-prettier) in the project 'node_modules' by using config files like package.json, eslintrc.json under the **project directory**, never install plugins globally by using 'npm install -g', that's useless for coc-eslint.
+
+Remember, put eslint-plugin-\* only in your project folder, not globally!
 
 -   Install 'Ctags' for tagbar and 'Astyle' for AutoFormat
 
@@ -164,17 +168,19 @@ sudo apt install ctags
 sudo apt install astyle
 ```
 
--   PHP developer, intelephense is PHP's LSP, which realizes automatic completion, error checking, etc
+## Issues
 
-```bash
-npm i intelephense -g
-```
+-   I want to use Monaco Nerd Fonts for my terminal, please open the font folder and install the MonacoNerd.ttf in
+    FontsForLinux
+-   coc.nvim doesn't work. To ':checkhealth' in neovim and possibly your neovim is under 0.3.x, update your neovim
+
+-   Float window doesn't work. Float window feature is added after neovim 0.4.x version. Please install the latest neovim!
 
 ## How To Use
 
-**Shortcut key**
+**Quick keys**
 
--   Emmet HTML auto compare and: Ctrl + O auto create tags. Refer to 'Emmet'
+-   Emmet HTML create tags automotically, Ctrl-O. Refer to 'Emmet'
 -   Save: F5
 -   Save and compile run: F6
 -   Format code: F12 (style, jsbeautify required)
@@ -200,3 +206,7 @@ npm i intelephense -g
 ![example](example/ex5.png)
 
 ![example](example/ex6.png)
+
+## My Global npm node modules
+
+![example](example/npm.png)
