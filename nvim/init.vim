@@ -325,7 +325,6 @@ set re=1
 set lazyredraw
 set synmaxcol=128
 set t_Co=256
-syntax sync minlines=256
 
 "-------------------显示相关---------------------------------------
 set cul "高亮光标所在行
@@ -452,8 +451,8 @@ set autoread
 au FocusGained * :checktime
 " quickfix模式
 autocmd FileType c,cpp map <buffer> <leader><space> :w<cr>:make<cr>
-"代码补全 
-set completeopt=longest,menu 
+"代码补全
+set completeopt=longest,menu
 "自动保存
 set autowrite
 " 去掉输入错误的提示声音
@@ -461,9 +460,8 @@ set autowrite
 " 在处理未保存或只读文件的时候，弹出确认
 set confirm
 "禁止自动分行
-set nowrap
-set textwidth=120
-
+set wrap
+set linebreak
 
 "禁止生成临时文件
 set noundofile
