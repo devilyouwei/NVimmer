@@ -36,8 +36,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/indentLine'
 Plug 'udalov/kotlin-vim', {'for':'kotlin'}
 Plug 'uiiaoo/java-syntax.vim', {'for':'java'}
-Plug 'shawncplus/php.vim',{'for':'php'}
-Plug 'othree/html5.vim',{'for':['html','xml','vue','php','javascript']}
+Plug 'othree/html5.vim',{'for':['html','vue','php','javascript']}
 Plug 'mattn/emmet-vim',{'for':['html','xml','vue','php','javascript','typescript','typescript.tsx','javascript.jsx']}
 Plug 'alvan/vim-closetag',{'for':['html','xml','vue','php','javascript','typescript','typescript.tsx','javascript.jsx']}
 Plug 'ctrlpvim/ctrlp.vim'
@@ -71,7 +70,8 @@ let g:polyglot_disabled = [
             \'typescript',
             \'kotlin',
             \'reactjavascript',
-            \'reacttypescript'
+            \'reacttypescript',
+            \'php'
             \]
 "彩虹括号
 Plug 'kien/rainbow_parentheses.vim'
