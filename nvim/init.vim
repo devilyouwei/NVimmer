@@ -323,7 +323,7 @@ set mousemodel=popup
 set termguicolors
 set re=1
 set lazyredraw
-set synmaxcol=128
+set synmaxcol=0
 set t_Co=256
 
 "-------------------显示相关---------------------------------------
