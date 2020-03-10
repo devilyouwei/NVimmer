@@ -1,5 +1,7 @@
 ![logo](./example/logo.png)
 
+*持续更新中......*
+
 # NVimmer(ZH)
 
 [English Readme](README.md)
