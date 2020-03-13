@@ -18,10 +18,13 @@ let g:coc_global_extensions=[
             \'coc-tsserver',
             \'coc-vetur',
             \'coc-stylelint',
-            \'coc-angular'
+            \'coc-angular',
+            \'coc-word',
+            \'coc-tabnine',
+            \'coc-emoji'
             \]
-Plug 'Shougo/neco-vim'
-Plug 'neoclide/coc-neco'
+"Plug 'Shougo/neco-vim'
+"Plug 'neoclide/coc-neco'
 Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar', {'on':'TagbarToggle'}
 Plug 'Chiel92/vim-autoformat'
@@ -38,7 +41,8 @@ Plug 'uiiaoo/java-syntax.vim', {'for':'java'}
 Plug 'othree/html5.vim', {'for':['html','vue','php','javascript']}
 Plug 'mattn/emmet-vim', {'for':['html','xml','vue','php','javascript','typescript','typescript.tsx','javascript.jsx']}
 Plug 'alvan/vim-closetag', {'for':['html','xml','vue','php','javascript','typescript','typescript.tsx','javascript.jsx']}
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'pangloss/vim-javascript',{'for':'javascript'}
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -62,6 +66,7 @@ let g:vue_pre_processors = []
 Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = [
             \'css',
+            \'cs',
             \'markdown',
             \'vue',
             \'html',
@@ -341,7 +346,7 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "前端主要使用Prettier美化
 autocmd filetype markdown,css,yaml,typescript,vue nnoremap <buffer> <F12> :Prettier<CR>
 "编译型
-autocmd filetype cs,c,cpp noremap <buffer> <F12> :Autoformat<CR>
+autocmd filetype cs,c,cpp,kotlin noremap <buffer> <F12> :Autoformat<CR>
 "常用快捷键---------------------------------------------------------------------------------------
 "去空行，去行尾空格
 nnoremap <F2> :g/^\s*$/d<CR>:g/\s\+$/s<CR>
@@ -458,7 +463,53 @@ set ttimeoutlen=150
 "退出插入模式
 "autocmd InsertLeave,CmdLineLeave * call Fcitx2en()
 "#####################################################################
-"闪烁光标
+"
+"
+"
+"fzf-----------------------------------------------------------------------
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+" [Commands] --expect expression for directly executing the command
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-w> <plug>(fzf-complete-word)
+imap <c-x><c-p> <plug>(fzf-complete-path)
+imap <c-x><c-f> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+nmap <C-F> :Files<CR>
+nmap <C-P> :Files<CR>
+nmap ff :Files<CR>
+imap <C-P> <Esc>:Files<CR>
+nmap <C-B> :Buffers<CR>
+nmap fb :Buffers<CR>
+imap <C-B> <Esc>:Buffers<CR>
+nmap <C-T> :Tags<CR>
+nmap ft :Tags<CR>
+let g:fzf_action = { 'ctrl-b': 'edit' }
+
+" Advanced customization using Vim function
+inoremap <expr> <c-x><c-w> fzf#vim#complete#word({'right': '20%'})
+
+"闪烁光标------------------------------------------------------------------
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
             \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
             \,sm:block-blinkwait175-blinkoff150-blinkon175
+

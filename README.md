@@ -28,6 +28,8 @@ NVimmer is a new version of [Vimmer](https://github.com/devilyouwei/Vimmer). The
 10. Wechat wxml
 11. react js/jsx/tsx **[new]**
 12. Kotlin **[weakly support]**
+13. English Words 1K+ **[new]**
+14. Emoji(type :) **[new]**
 
 Python may be supported in the future.
 
@@ -107,8 +109,9 @@ The following plugins are COC plugins.
 
 For auto complete, check errors/warnings, autoformat, color highlight and other ide functions, you can choose to install them according to your main language.
 
-The following plugins will be installed automotically when you open NeoVim(because I config them in init.vim). Of course, you can input the following commands to install them
-manually again in nvim or remove them from init.vim.
+The following plugins will be installed automotically when you open NeoVim(because I config them in init.vim).
+
+Of course, you can input the following commands to install them manually again in nvim or remove them from init.vim if you don't need it.
 
 ```bash
 :CocInstall coc-html
@@ -124,11 +127,8 @@ manually again in nvim or remove them from init.vim.
 :CocInstall coc-stylelint
 :CocInstall coc-omnisharp
 :CocInstall coc-prettier
-//Wechat applet
 :CocInstall coc-wxml
-// TS and JS
 :CocInstall coc-tsserver
-// Vue
 :CocInstall coc-vetur
 :CocInstall coc-angular
 ```
@@ -159,11 +159,11 @@ I provide only the basic 'eslint:recommended' lint rules globally in ~/.eslintrc
 
 If you are using vue, html, react in your projects and want to lint such files.
 
-Install the eslint-plugins(such as eslint-plugin-prettier) in the project 'node_modules' by using config files like package.json, eslintrc.json under the **project directory**, never install plugins globally by using 'npm install -g', that's useless for coc-eslint.
+Install the eslint-plugins(such as eslint-plugin-prettier) in the **project** 'node_modules' by using config files like package.json, eslintrc.json under the **project directory**, never install plugins globally by using 'npm install -g', that's useless for coc-eslint.
 
-Remember, put eslint-plugin-\* only in your project folder, not globally!
+Remember, put eslint-plugin-\* only in your **project folder**, not globally!
 
--   Install 'Ctags' for tagbar and 'Astyle' for AutoFormat
+-   Install 'ctags' for tagbar and 'astyle' for AutoFormat
 
 ```bash
 sudo apt install ctags
@@ -182,16 +182,21 @@ sudo apt install astyle
 
 **Quick keys**
 
--   Emmet HTML create tags automotically, Ctrl-O. Refer to 'Emmet'
--   Save: F5
--   Save and compile run: F6
--   Format code: F12 (style, jsbeautify required)
--   Clear blank lines: F2
--   Open current directory file tree: F3
--   Open tagbar: F9 (ctags required)
--   Auto completion: COC auto completion plug-in, press tab to auto complete
--   Buffer switch: Ctrl + H, Ctrl + L, Ctrl + left, Ctrl + right
--   Tab switch: as above, change Ctrl to shift
+-   Emmet HTML create tags automotically: **Ctrl-O**. Refer to 'Emmet'
+-   Save: **F5**
+-   Save and compile run: **F6**
+-   Auto format code,document: **F12**
+-   Clear blank lines: **F2**
+-   Open current directory file tree: **F3**
+-   Open tagbar: **F9** (ctags required)
+-   Auto completion: COC auto completion, press **Tab** to auto complete
+-   Buffer switch: **Ctrl+H**, **Ctrl+L**, **Ctrl+left**, **Ctrl+right**
+-   Tab switch: as above, change Ctrl to **shift**
+-   Find Definition of functions, classes, enter **'gd'**
+-   Find tags, includeing functions, class globally, press: **Ctrl-T** or **ft**
+-   Find buffers, press: **Ctrl-B** or **fb**
+-   Find files in current path, press: **Ctrl-F** or **Ctrl-P** or **ff**
+-   **[new]** Find English words in vim, should in 'Insert Mode' and press: **Ctrl-X** then **Ctrl-W**
 
 ## Examples :tada: :tada: :tada:
 
