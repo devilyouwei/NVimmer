@@ -168,6 +168,11 @@ Remember, put eslint-plugin-\* only in your **project folder**, not globally!
 ```bash
 sudo apt install ctags
 sudo apt install astyle
+
+# Install lazy git if needed (recommended)
+sudo add-apt-repository ppa:lazygit-team/release
+sudo apt-get update
+sudo apt-get install lazygit
 ```
 
 ## Issues
@@ -183,6 +188,7 @@ sudo apt install astyle
 **Quick keys**
 
 -   Emmet HTML create tags automotically: **Ctrl-O**. Refer to 'Emmet'
+-   Open Float Terminal: **F4**
 -   Save: **F5**
 -   Save and compile run: **F6**
 -   Auto format code,document: **F12**

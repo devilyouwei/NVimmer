@@ -184,6 +184,11 @@ npm install -g eslint
 ```bash
 sudo apt install ctags
 sudo apt install astyle
+
+# 安装lazy git (推荐)
+sudo add-apt-repository ppa:lazygit-team/release
+sudo apt-get update
+sudo apt-get install lazygit
 ```
 
 ## 使用
@@ -191,6 +196,7 @@ sudo apt install astyle
 **快捷键**
 
 -   Emmet html 自动生成闭合 html 标签, 插入模式下按：**Ctrl-O** 参考'Emmet'官网用法
+-   打开浮动终端: **F4**
 -   保存: **F5**
 -   保存并编译运行: **F6**
 -   格式化代码：**F12**
