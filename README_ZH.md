@@ -250,3 +250,9 @@ sudo sysctl --system
 ![example](example/ex5.png)
 
 ![example](example/ex6.png)
+
+![example](example/ex7.png)
+
+![example](example/ex8.png)
+
+![example](example/ex9.png)

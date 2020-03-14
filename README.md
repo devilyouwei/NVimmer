@@ -214,6 +214,12 @@ sudo apt install astyle
 
 ![example](example/ex6.png)
 
+![example](example/ex7.png)
+
+![example](example/ex8.png)
+
+![example](example/ex9.png)
+
 ## My Global npm node modules
 
 ![example](example/npm.png)

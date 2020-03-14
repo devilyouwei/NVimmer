@@ -25,6 +25,12 @@ let g:coc_global_extensions=[
             \]
 "Plug 'Shougo/neco-vim'
 "Plug 'neoclide/coc-neco'
+Plug 'voldikss/vim-floaterm'
+let g:floaterm_type = 'floating'
+let g:floaterm_winblend = '25'
+let g:floaterm_position = 'center'
+hi FloatermNF guibg=black
+hi FloatermBorderNF guibg=orange guifg=cyan
 Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar', {'on':'TagbarToggle'}
 Plug 'Chiel92/vim-autoformat'
@@ -354,6 +360,7 @@ nnoremap <F2> :g/^\s*$/d<CR>:g/\s\+$/s<CR>
 map! <C-O> <C-Y>,
 "列出当前目录文件
 nmap <F3> :NERDTreeToggle<CR>
+nmap <F4> :FloatermToggle<CR>
 "tagbar
 nmap <F9> :TagbarToggle<CR>
 "按F5保存
