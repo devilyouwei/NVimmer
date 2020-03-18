@@ -17,7 +17,7 @@ NVimmer 是新版的 [Vimmer](https://github.com/devilyouwei/Vimmer)，NVimmer �
 1. HTML CSS JS
 2. Java **[color enhanced]**
 3. C# **[enhanced]**
-4. vue **[broken vetur LSP]**
+4. vue
 5. TypeScript
 6. PHP
 7. C/C++
@@ -31,7 +31,7 @@ NVimmer 是新版的 [Vimmer](https://github.com/devilyouwei/Vimmer)，NVimmer �
 
 Python 在未来可能会得到支持。
 
-Vue 的 lanaguge server 出现了一点问题, coc.nvim, coc-vetur 的创始人正在修复
+Vue 的 coc-vetur 已经得到修复，现在可以正常使用了，感谢 coc 团队。
 
 ## 让我们一起用 NeoVim 吧
 
@@ -262,3 +262,5 @@ sudo sysctl --system
 ![example](example/ex8.png)
 
 ![example](example/ex9.png)
+
+![example](example/ex10.png)

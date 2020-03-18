@@ -3,7 +3,7 @@
     "javascript.validate.enable": false, //use eslint to check js
 
     //vue
-    "vetur.format.enable": false,
+    "vetur.format.enable": true,
     "vetur.format.options.tabSize": 4,
     "vetur.format.options.useTabs": false,
     "vetur.validation.style": true,
@@ -45,12 +45,15 @@
 
     //emmet
     "emmet.includeLanguages": {
-        "vue": "html",
         "javascript": "javascriptreact"
     },
 
     //eslint,js
+    "eslint.autoFix": true,
     "eslint.autoFixOnSave": true,
-    "eslint.filetypes": ["javascript", "javascriptreact", "javascript.jsx", "html", "vue"],
-    "eslint.run": "onType"
+    "eslint.filetypes": ["javascript", "javascriptreact", "javascript.jsx", "html"],
+    "eslint.run": "onType",
+
+    //java
+    "java.errors.incompleteClasspath.severity": "ignore"
 }

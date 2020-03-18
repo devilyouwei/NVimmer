@@ -350,9 +350,9 @@ map <C-Right> :bp<CR>        "上一个缓冲区
 noremap <F12> :syntax sync fromstart<CR>:Format<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "前端主要使用Prettier美化
-autocmd filetype markdown,css,yaml,typescript,vue nnoremap <buffer> <F12> :Prettier<CR>
+autocmd filetype markdown,css,yaml,typescript nnoremap <buffer> <F12> :Prettier<CR>
 "编译型
-autocmd filetype cs,c,cpp,kotlin noremap <buffer> <F12> :Autoformat<CR>
+autocmd filetype cs,c,cpp,kotlin,sh noremap <buffer> <F12> :Autoformat<CR>
 "常用快捷键---------------------------------------------------------------------------------------
 "去空行，去行尾空格
 nnoremap <F2> :g/^\s*$/d<CR>:g/\s\+$/s<CR>
@@ -390,6 +390,8 @@ func! Compile()
         exec "!time node %"
     elseif &filetype == 'php'
         exec "!time php %"
+    elseif &filetype == 'sh'
+        exec "!./%"
     endif
 endfunc
 "C,C++的调试

@@ -19,7 +19,7 @@ NVimmer is a new version of [Vimmer](https://github.com/devilyouwei/Vimmer). The
 1. HTML CSS JS
 2. Java **[color enhanced]**
 3. C# **[enhanced]**
-4. vue **[broken vetur LSP]**
+4. vue
 5. TypeScript
 6. PHP
 7. C/C++
@@ -29,11 +29,11 @@ NVimmer is a new version of [Vimmer](https://github.com/devilyouwei/Vimmer). The
 11. react js/jsx/tsx **[new]**
 12. Kotlin **[weakly support]**
 13. English Words 1K+ **[new]**
-14. Emoji(type :) **[new]**
+14. Emoji **[new]**
 
 Python may be supported in the future.
 
-Vue's language server has some troubles, waiting for coc-vetur to fix it.
+Vue's language server has been fixed. Everthing works well in vue now!
 
 ## Quick Start
 
@@ -225,6 +225,8 @@ sudo apt-get install lazygit
 ![example](example/ex8.png)
 
 ![example](example/ex9.png)
+
+![example](example/ex10.png)
 
 ## My Global npm node modules
 
