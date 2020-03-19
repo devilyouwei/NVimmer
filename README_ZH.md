@@ -77,13 +77,13 @@ sudo snap install --beta nvim --classic
 For Linux
 
 ```bash
-// 克隆NVimmer
+#克隆NVimmer
 git clone https://github.com/devilyouwei/NVimmer.git
 
-// 切换到项目下
+#切换到项目下
 cd NVimmer
 
-// 在用户目录下新建nvim配置目录
+#在用户目录下新建nvim配置目录
 cp -rf ./nvim ~/.config/
 
 cp ./.eslintrc.json ~/
@@ -94,7 +94,7 @@ cp ./.prettierrc.json ~/
 
 ```bash
 sudo apt install nodejs
-//或者
+#或
 curl -sL install-node.now.sh/lts | bash
 ```
 
@@ -140,11 +140,11 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw
 :CocInstall coc-stylelint
 :CocInstall coc-omnisharp
 :CocInstall coc-prettier
-// 微信小程序
+#微信小程序
 :CocInstall coc-wxml
-// TS和JS
+#TS和JS
 :CocInstall coc-tsserver
-// vue
+#vue
 :CocInstall coc-vetur
 :CocInstall coc-angular
 ```
@@ -184,6 +184,8 @@ npm install -g eslint
 ```bash
 sudo apt install ctags
 sudo apt install astyle
+sudo apt install clang-format
+snap install shfmt
 
 # 安装lazy git (推荐)
 sudo add-apt-repository ppa:lazygit-team/release

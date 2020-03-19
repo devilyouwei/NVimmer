@@ -6,7 +6,7 @@ _Continuously updating..._
 
 [Chinese Readme](README_ZH.md)
 
-A simple, fast and efficient VIM ide configuration, it is especially suitable for full stack developers.
+A simple, fast and efficient **VIM IDE Configuration**, it is especially suitable for full stack developers.
 
 With Monaco nerd font on Linux.
 
@@ -41,7 +41,7 @@ Vue's language server has been fixed. Everthing works well in vue now!
 
 Method 1: the NeoVim on Ubuntu apt is old, it is stable but never support the COC plugin.
 
-So download the latest stable version by PPA.
+So download the latest stable version through PPA.
 
 ```bash
 sudo add-apt-repository ppa:neovim-ppa/stable
@@ -49,13 +49,13 @@ sudo apt-get update
 sudo apt-get install neovim
 ```
 
-Method 2: you can also use snap to install, snap can install candidate version, no stable version. You can only install edge and beta version. It is recommended to install beta
+Method 2 (**recommended**): you can use snap to install
 
 ```bash
 sudo snap install --beta nvim --classic
 ```
 
-For installation on other systems, please refer to the GitHub tutorial:
+For installation on other systems, please refer to the GitHub Tutorial:
 [https://github.com/neovim/neovim/wiki/installing-neovim](https://github.com/neovim/neovim/wiki/installing-neovim)
 
 **Clone NVimmer**
@@ -63,13 +63,13 @@ For installation on other systems, please refer to the GitHub tutorial:
 For Linux
 
 ```bash
-//Clone nvimmer
+#Clone nvimmer
 git clone https://github.com/devilyouwei/NVimmer.git
 
-//Switch to project folder
+#Switch to project folder
 cd NVimmer
 
-//Copy nvim configuration directory to your home_user directory
+#Copy nvim configuration directory to your home_user directory
 cp -rf ./nvim ~/.config/
 cp ./.eslintrc.json ~/
 cp ./.prettierrc.json ~/
@@ -79,7 +79,7 @@ cp ./.prettierrc.json ~/
 
 ```bash
 sudo apt install nodejs
-//or
+#or
 curl -sL install-node.now.sh/lts | bash
 ```
 
@@ -101,7 +101,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw
 
 **Plugin installation**
 
-Enter nvim, input ':plugInstall' to install all plugins
+Open nvim, then input command ':plugInstall' to install all plugins
 
 **Install coc plugins**
 
@@ -168,6 +168,8 @@ Remember, put eslint-plugin-\* only in your **project folder**, not globally!
 ```bash
 sudo apt install ctags
 sudo apt install astyle
+sudo apt install clang-format
+snap install shfmt
 
 # Install lazy git if needed (recommended)
 sudo add-apt-repository ppa:lazygit-team/release
@@ -177,8 +179,8 @@ sudo apt-get install lazygit
 
 ## Issues
 
--   I want to use Monaco Nerd Fonts for my terminal, please open the font folder and install the MonacoNerd.ttf in
-    FontsForLinux
+-   I want to use Monaco Nerd Fonts for my terminal, please open the font folder and install the MonacoNerd.ttf in FontsForLinux
+
 -   coc.nvim doesn't work. To ':checkhealth' in neovim and possibly your neovim is under 0.3.x, update your neovim
 
 -   Float window doesn't work. Float window feature is added after neovim 0.4.x version. Please install the latest neovim!
