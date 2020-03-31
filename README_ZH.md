@@ -45,7 +45,7 @@ chmod +x ./ubuntu_install.sh && ./ubuntu_install.sh
 
 ## 手动开始，按部就班
 
-*### *安装 Neovim**
+### 安装 Neovim
 
 法 1：ubuntu，ubuntu 自带的 neovim 比较老，但比较稳定，不支持 coc 插件，所以要用 ppa 方式下载最新稳定版。
 
@@ -64,7 +64,7 @@ sudo snap install --beta nvim --classic
 其他系统安装请参考 github 官方教程：
 [https://github.com/neovim/neovim/wiki/Installing-Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 
-**### 克隆 NVimmer**
+### 克隆 NVimmer
 
 克隆NVimmer，切换到项目下，复制配置文件到用户目录下
 
@@ -76,7 +76,7 @@ cp ./.eslintrc.json ~/
 cp ./.prettierrc.json ~/
 ```
 
-### **安装 NodeJS**
+### 安装 NodeJS
 
 ```bash
 sudo apt install nodejs
@@ -90,7 +90,7 @@ curl -sL install-node.now.sh/lts | bash
 
 [https://nodejs.org](https://nodejs.org/)
 
-*### *安装 Vim-Plug**
+### 安装 Vim-Plug
 
 Vim-Plug 是一个强大的 vim 插件管理器
 
@@ -100,11 +100,11 @@ Linux
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-**### 插件安装**
+### 插件安装
 
 进入 nvim，输入:PlugInstall 安装所有插件
 
-**### Coc 插件安装**
+### Coc 插件安装
 
 以下插件是 Coc 安装插件，为了自动补全，自动纠错，格式化，色彩高亮等 IDE 功能准备的，可以根据自己语言需求选择安装。
 
@@ -135,7 +135,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw
 :CocInstall coc-angular
 ```
 
-**### 补充安装**
+### 补充安装
 
 以下选装，针对不同开发者可以自己定制，fullstack 也可以全装，试了下不会影响性能
 
