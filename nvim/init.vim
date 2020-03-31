@@ -1,6 +1,7 @@
-"vim-plug
+"-----------------------vim-plug----------------------------
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch':'release'}
+Plug 'mhinz/vim-startify'
 let g:coc_global_extensions=[
             \'coc-omnisharp',
             \'coc-html',
@@ -23,6 +24,7 @@ let g:coc_global_extensions=[
             \'coc-tabnine',
             \'coc-emoji'
             \]
+Plug 'honza/vim-snippets'
 "Plug 'Shougo/neco-vim'
 "Plug 'neoclide/coc-neco'
 Plug 'voldikss/vim-floaterm'
@@ -45,19 +47,19 @@ Plug 'Yggdroot/indentLine'
 Plug 'udalov/kotlin-vim', {'for':'kotlin'}
 Plug 'uiiaoo/java-syntax.vim', {'for':'java'}
 Plug 'othree/html5.vim', {'for':['html','vue','php','javascript']}
-Plug 'mattn/emmet-vim', {'for':['html','xml','vue','php','javascript','typescript','typescript.tsx','javascript.jsx']}
-Plug 'alvan/vim-closetag', {'for':['html','xml','vue','php','javascript','typescript','typescript.tsx','javascript.jsx']}
+Plug 'mattn/emmet-vim', {'for':['html','xml','vue','php','typescriptreact','javascript','typescript','typescript.tsx','javascript.jsx']}
+Plug 'alvan/vim-closetag', {'for':['html','xml','vue','php','typescriptreact','javascript','typescript','typescript.tsx','javascript.jsx']}
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'pangloss/vim-javascript',{'for':'javascript'}
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'isRuslan/vim-es6'
-Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'isRuslan/vim-es6', {'for':['html','php','vue','typescriptreact','javascript','typescript','typescript.tsx','javascript.jsx']}
+Plug 'yuezk/vim-js', {'for':['vue','html','php','typescriptreact','javascript','typescript','typescript.tsx','javascript.jsx']}
+Plug 'maxmellon/vim-jsx-pretty', {'for':['typescriptreact','javascript','typescript','typescript.tsx','javascript.jsx']}
+Plug 'HerringtonDarkholme/yats.vim', {'for':['typescriptreact','javascript','typescript','typescript.tsx','javascript.jsx']}
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
-Plug 'vim-scripts/matchit.zip'
+Plug 'vim-scripts/matchit.zip', {'for':['html','xml','vue','php','typescriptreact','javascript','typescript','typescript.tsx','javascript.jsx']}
 Plug 'leshill/vim-json', {'for':'json'}
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
@@ -67,7 +69,7 @@ Plug 'OmniSharp/omnisharp-vim', {'for':'cs'}
 "Plug 'OrangeT/vim-csharp', {'for':'cs'}
 Plug 'w0rp/ale', {'for':'cs'}
 Plug 'posva/vim-vue', {'for':'vue'}
-Plug 'hail2u/vim-css3-syntax'
+Plug 'hail2u/vim-css3-syntax',{'for':['html','vue','php']}
 let g:vue_pre_processors = []
 Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = [
@@ -111,6 +113,7 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 au Syntax * RainbowParenthesesLoadChevrons
 call plug#end()
+
 "------------------------------coc.nvim---------------------------------------
 filetype on
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -335,7 +338,7 @@ set cmdheight=1
 set viminfo+=!
 " 带有如下符号的单词不要被换行分割
 set iskeyword+=$,@,%,#,-,_
-set guifont=Monaco\ Bold\ 12
+"set guifont=Monaco\ Bold\ 12
 filetype plugin on
 "tab, buffer快捷键配置----------------------------------------------------------------------------
 map <S-H> :tabp<CR>
