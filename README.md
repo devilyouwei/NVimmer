@@ -35,9 +35,19 @@ Python may be supported in the future.
 
 Vue's language server has been fixed. Everthing works well in vue now!
 
+## Ubuntu Shell Onekey Install (new~, recommended)
+
+Execute the following commands, it's easier to install everything.
+
+```
+git clone https://github.com/devilyouwei/NVimmer.git
+cd NVimmer
+chmod +x ./ubuntu_install.sh && ./ubuntu_install.sh
+```
+
 ## Quick Start
 
-**Install NeoVim**
+### **Install NeoVim**
 
 Method 1: the NeoVim on Ubuntu apt is old, it is stable but never support the COC plugin.
 
@@ -58,7 +68,7 @@ sudo snap install --beta nvim --classic
 For installation on other systems, please refer to the GitHub Tutorial:
 [https://github.com/neovim/neovim/wiki/installing-neovim](https://github.com/neovim/neovim/wiki/installing-neovim)
 
-**Clone NVimmer**
+*### *Clone NVimmer**
 
 For Linux
 
@@ -75,7 +85,7 @@ cp ./.eslintrc.json ~/
 cp ./.prettierrc.json ~/
 ```
 
-**Install Nodejs**
+### **Install Nodejs**
 
 ```bash
 sudo apt install nodejs
@@ -89,7 +99,7 @@ I strongly recommend to use the tool [nvm](https://github.com/nvm-sh/nvm) to man
 
 [https://nodejs.org](https://nodejs.org/)
 
-**Install vim-plug**
+*### *Install vim-plug**
 
 'vim-plug' is a powerful vim plugins manager!
 
@@ -99,11 +109,11 @@ For Linux
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-**Plugin installation**
+**### Vim Plugin installation**
 
 Open nvim, then input command ':plugInstall' to install all plugins
 
-**Install coc plugins**
+**### Install coc plugins**
 
 The following plugins are COC plugins.
 
@@ -133,7 +143,7 @@ Of course, you can input the following commands to install them manually again i
 :CocInstall coc-angular
 ```
 
-**Supplementary Installation**
+**### Supplementary Installation**
 
 The following options can be customized for different developers, and fullstack can install all of them, which will never affect the performance.
 
@@ -179,7 +189,7 @@ sudo apt-get install lazygit
 
 ## Issues
 
--   I want to use Monaco Nerd Fonts for my terminal, please open the font folder and install the MonacoNerd.ttf in FontsForLinux
+-   I want to use Monaco Nerd Fonts for my terminal. Please install the MonacoNerd.ttf in fonts
 
 -   coc.nvim doesn't work. To ':checkhealth' in neovim and possibly your neovim is under 0.3.x, update your neovim
 

@@ -8,7 +8,7 @@ _持续更新中......_
 
 一套简洁，快速，高效的 Vim IDE 配置，适合全栈开发者。
 
-内置 Monaco Nerd 字体
+内置 Monaco Nerd 字体！
 
 NVimmer 是新版的 [Vimmer](https://github.com/devilyouwei/Vimmer)，NVimmer 的配置将会完全基于 NeoVim 而不再是 Vim
 
@@ -33,25 +33,19 @@ Python 在未来可能会得到支持。
 
 Vue 的 coc-vetur 已经得到修复，现在可以正常使用了，感谢 coc 团队。
 
-## 让我们一起用 NeoVim 吧
+## Ubuntu Shell 脚本一键安装 (最新，推荐)
 
-巴西程序员 Thiago de Arruda Padilha（aka tarruda）向 Vim 开源编辑器项目递交了两大补丁，对 Vim 的架构进行了大幅调整，结果遭到了 Vim 作者 Bram Moolenaar 的拒绝，因为对于 Vim 这样一个成熟的项目进行如此大的改变风险太高。于是 tarruda 发起了 Vim fork 项目 Neovim，集资 1 万美元打造出 21 世纪的编辑器，提供更好的脚本、插件支持，整合现代的图形界面。
+执行以下命令行，一键安装全部！
 
-至今，NeoVim 的迅速崛起，大量的 vim 老用户，新用户迁移到了 Neovim 阵营。
+```
+git clone https://github.com/devilyouwei/NVimmer.git
+cd NVimmer
+chmod +x ./ubuntu_install.sh && ./ubuntu_install.sh
+```
 
-作为 4 年多的 vim 忠实用户，在 ubuntu 上亲自尝试 NeoVim 之后，我决定使用 NeoVim 取代 Vim。
+## 手动开始，按部就班
 
-伴随之，之前的 Vimmer 项目也将停止更新，但仍然支持 bug 的修复，issue 的讨论。
-
-未来所有的 Vim 新特性，新插件，新配置都会在 NVimmer 这个 repo 中进行。
-
-NVimmer 将会代替 Vimmer 成为我新的，活跃的 vim 配置。
-
-_README 使用 Vim8 写于 2020 年 2 月 15 日，纪念弃 vim，入坑 NeoVim。_
-
-## 开始
-
-**安装 Neovim**
+*### *安装 Neovim**
 
 法 1：ubuntu，ubuntu 自带的 neovim 比较老，但比较稳定，不支持 coc 插件，所以要用 ppa 方式下载最新稳定版。
 
@@ -70,27 +64,19 @@ sudo snap install --beta nvim --classic
 其他系统安装请参考 github 官方教程：
 [https://github.com/neovim/neovim/wiki/Installing-Neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 
-**克隆 NVimmer**
+**### 克隆 NVimmer**
 
-切换到克隆的 NVimmer 目录中，复制配置文件到用户目录下
-
-For Linux
+克隆NVimmer，切换到项目下，复制配置文件到用户目录下
 
 ```bash
-#克隆NVimmer
 git clone https://github.com/devilyouwei/NVimmer.git
-
-#切换到项目下
 cd NVimmer
-
-#在用户目录下新建nvim配置目录
 cp -rf ./nvim ~/.config/
-
 cp ./.eslintrc.json ~/
 cp ./.prettierrc.json ~/
 ```
 
-**安装 NodeJS**
+### **安装 NodeJS**
 
 ```bash
 sudo apt install nodejs
@@ -104,7 +90,7 @@ curl -sL install-node.now.sh/lts | bash
 
 [https://nodejs.org](https://nodejs.org/)
 
-**安装 Vim-Plug**
+*### *安装 Vim-Plug**
 
 Vim-Plug 是一个强大的 vim 插件管理器
 
@@ -114,11 +100,11 @@ Linux
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-**插件安装**
+**### 插件安装**
 
 进入 nvim，输入:PlugInstall 安装所有插件
 
-**Coc 插件安装**
+**### Coc 插件安装**
 
 以下插件是 Coc 安装插件，为了自动补全，自动纠错，格式化，色彩高亮等 IDE 功能准备的，可以根据自己语言需求选择安装。
 
@@ -149,7 +135,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw
 :CocInstall coc-angular
 ```
 
-**补充安装**
+**### 补充安装**
 
 以下选装，针对不同开发者可以自己定制，fullstack 也可以全装，试了下不会影响性能
 
@@ -266,3 +252,7 @@ sudo sysctl --system
 ![example](example/ex9.png)
 
 ![example](example/ex10.png)
+
+## 我全局安装的 NPM 包
+
+![example](example/npm.png)
