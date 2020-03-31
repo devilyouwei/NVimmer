@@ -23,11 +23,7 @@ else
 fi
 
 echo "Install ESLint--------------------------------------------"
-(eslint -v)
-status=$?
-if [ "$status" -eq 0 ];then
-    npm -g install eslint neovim
-fi
+npm -g install eslint neovim
 
 echo "Install Astyle--------------------------------------------"
 sudo apt install astyle
