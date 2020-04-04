@@ -33,9 +33,9 @@ Python 在未来可能会得到支持。
 
 Vue 的 coc-vetur 已经得到修复，现在可以正常使用了，感谢 coc 团队。
 
-## Ubuntu Shell 脚本一键安装 (最新，推荐)
+## 【重磅推荐】Ubuntu Shell 脚本一键安装
 
-执行以下命令行，一键安装全部！
+执行以下命令行，省事～
 
 ```
 git clone https://github.com/devilyouwei/NVimmer.git
@@ -55,7 +55,7 @@ sudo apt-get update
 sudo apt-get install neovim
 ```
 
-法 2：也可以用 snap 安装，按照官方说法，snap 可以安装 candidate 版本，但是 ubuntu 里的 snap 找不到，只能安装 edge 和 beta 版本，建议安装 beta
+【推荐】用 snap 安装，只能安装 edge 和 beta 版本，安装 beta
 
 ```bash
 sudo snap install --beta nvim --classic
@@ -71,6 +71,7 @@ sudo snap install --beta nvim --classic
 ```bash
 git clone https://github.com/devilyouwei/NVimmer.git
 cd NVimmer
+mkdir ~/.config
 cp -rf ./nvim/ ~/.config/
 cp ./.eslintrc.json ~/
 cp ./.prettierrc.json ~/
@@ -79,22 +80,30 @@ cp ./.prettierrc.json ~/
 ### 安装 NodeJS
 
 ```bash
-sudo apt install nodejs
-#或
 curl -sL install-node.now.sh/lts | bash
 ```
 
-如果嫌 ubuntu 源里的 node 版本太老，参考 node 官网安装最新版，本人的环境是 13
+或者，nvm安装
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+nvm install stable
+```
+
+也可参考 node 官网安装最新版，本人的环境是 13
 
 墙裂推荐使用 [nvm](https://github.com/nvm-sh/nvm) 来安装和管理 nodejs，更加清洁和方便，还能随便改版本
 
 [https://nodejs.org](https://nodejs.org/)
 
+注意：这里千万不要用snap安装，无法通过 `:checkhealth` 检查
+
 ### 安装 Vim-Plug
 
 Vim-Plug 是一个强大的 vim 插件管理器
-
-Linux
 
 ```bash
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -105,13 +114,18 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 进入 nvim，输入:PlugInstall 安装所有插件
 
+或者在终端中执行：
+```
+nvim -c PlugInstall
+```
+
 ### Coc 插件安装
 
 以下插件是 Coc 安装插件，为了自动补全，自动纠错，格式化，色彩高亮等 IDE 功能准备的，可以根据自己语言需求选择安装。
 
 打开 nvim，输入以下命令手动安装 coc 插件
 
-(以下插件也会在 NeoVim 打开后逐个安装)
+(以下插件也会在 NeoVim 打开后逐个安装，不需要一个个输入)
 
 ```bash
 :CocInstall coc-html
@@ -136,7 +150,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 :CocInstall coc-angular
 ```
 
-### 补充安装
+### 其他安装
 
 以下选装，针对不同开发者可以自己定制，fullstack 也可以全装，试了下不会影响性能
 
@@ -158,13 +172,12 @@ gem install neovim
 npm install -g eslint
 ```
 
-针对各种先进的前端框架，例如 vue,react 等，需要其他的 lint 规则和插件，请将他们的 eslint-plugin 安装在项目目录下，不要全局安装任何 eslint 的 plugin，无效！
+针对各种先进的前端框架，例如 vue,react 等，需要其他的 lint 规则和插件，请将他们的 eslint-plugin 安装在**项目目录**下，**不要全局**安装任何 eslint 的 plugin！
 
 例如什么 eslint-plugin-prettier，也不要在系统 home 下的.eslintrc.json 中配置这些 plugin，coc-eslint 找不到他们会报错。
 
 如需用到这些 lint 插件，正确的做法应该是在开发**项目中**配置 package.json 或者 eslintrc 文件来配置规则，然后使用'npm install'局部安装到**项目中**，
 
-这样在项目中用 neovim 打开代码文件就会自动 lint 他们了
 
 4. 针对 tagbar 安装 ctags，针对 autoformat 安装 astyle
 
@@ -173,11 +186,28 @@ sudo apt install ctags
 sudo apt install astyle
 sudo apt install clang-format
 snap install shfmt
+```
 
-# 安装lazy git (推荐)
+5. 安装lazy git (推荐)
+
+```
 sudo add-apt-repository ppa:lazygit-team/release
 sudo apt-get update
 sudo apt-get install lazygit
+```
+
+6. Python
+
+```
+pip install neovim
+pip3 install neovim
+```
+
+7. Perl
+
+```
+sudo apt install cpanminus
+cpanm Neovim::Ext
 ```
 
 ## 使用

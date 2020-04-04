@@ -35,9 +35,9 @@ Python may be supported in the future.
 
 Vue's language server has been fixed. Everthing works well in vue now!
 
-## Ubuntu Shell Onekey Install (new, recommended)
+## [Recommended] Ubuntu Shell Onekey Install
 
-Execute the following commands, it's easier to install everything.
+Execute the following commands, easy to install everything!
 
 ```
 git clone https://github.com/devilyouwei/NVimmer.git
@@ -80,24 +80,29 @@ git clone https://github.com/devilyouwei/NVimmer.git
 cd NVimmer
 
 #Copy nvim configuration directory to your home_user directory
+mkdir ~/.config
 cp -rf ./nvim/ ~/.config/
 cp ./.eslintrc.json ~/
 cp ./.prettierrc.json ~/
 ```
 
-### Install Nodejs
+### Install NodeJS
+
+I strongly **recommend** to use the tool [nvm](https://github.com/nvm-sh/nvm) to manage your nodejs!
 
 ```bash
-sudo apt install nodejs
-#or
+# official node install script
 curl -sL install-node.now.sh/lts | bash
+
+# use nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+source ~/.bashrc
+nvm install table
 ```
 
-If the node version in Ubuntu source is too old, please refer to the node official website to install the latest version. Mine is 13
+The node version in ubuntu apt is too old, please refer to the node official website to install the latest version. Mine is 13 and the node official website is [https://nodejs.org](https://nodejs.org/)
 
-I strongly recommend to use the tool [nvm](https://github.com/nvm-sh/nvm) to manage your nodejs!
-
-[https://nodejs.org](https://nodejs.org/)
+Attention: **DON'T USE SNAP** to install nodejs! NeoVim `:checkhealth` not passed!
 
 ### Install vim-plug
 
@@ -112,7 +117,13 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 
 ### Vim Plugin installation
 
-Open nvim, then input command ':plugInstall' to install all plugins
+Open nvim, then input command `:PlugInstall` to install all plugins
+
+Or run in terminal
+
+```bash
+nvim -c PlugInstall
+```
 
 ### Install coc plugins
 
@@ -120,7 +131,7 @@ The following plugins are COC plugins.
 
 For auto complete, check errors/warnings, autoformat, color highlight and other ide functions, you can choose to install them according to your main language.
 
-The following plugins will be installed automotically when you open NeoVim(because I config them in init.vim).
+The following plugins will be installed automotically when you open NeoVim (because I config them in init.vim).
 
 Of course, you can input the following commands to install them manually again in nvim or remove them from init.vim if you don't need it.
 
@@ -148,41 +159,55 @@ Of course, you can input the following commands to install them manually again i
 
 The following options can be customized for different developers, and fullstack can install all of them, which will never affect the performance.
 
--   For node developers
+**For node developers**
 
 ```bash
 npm install -g neovim
 ```
 
--   For Ruby developers
+**For Ruby developers**
 
 ```bash
 gem install neovim
 ```
 
--   For front-end and JS developers, must install eslint!
+**For Perl**
+
+```bash
+sudo apt install cpanminus
+cpanm Neovim::Ext
+```
+
+**For Python**
+```bash
+pip install neovim #py2
+pip3 install nepvim #py3
+```
+
+**For front-end and JS developers**
 
 ```bash
 npm install -g eslint
 ```
 
-I provide only the basic 'eslint:recommended' lint rules globally in ~/.eslintrc.json and it works globally!
+1. '.eslintrc.json' and '.prettierrc.json' in home dir is the global eslint config, don't change it or add any plugin globally!
 
-If you are using vue, html, react in your projects and want to lint such files.
+2. If you are using vue, html, react in your projects and want to lint such files. You should install the eslint plugins in **project** dir by using package.json or eslinrc.json.
 
-Install the eslint-plugins(such as eslint-plugin-prettier) in the **project** 'node_modules' by using config files like package.json, eslintrc.json under the **project directory**, never install plugins globally by using 'npm install -g', that's useless for coc-eslint.
+Remember, put `eslint-plugin-*` only in your **project folder**, not **globally**!
 
-Remember, put eslint-plugin-\* only in your **project folder**, not globally!
-
--   Install 'ctags' for tagbar and 'astyle' for AutoFormat
+**Install 'ctags' for tagbar and 'astyle' for AutoFormat**
 
 ```bash
 sudo apt install ctags
 sudo apt install astyle
 sudo apt install clang-format
 snap install shfmt
+```
 
-# Install lazy git if needed (recommended)
+**Install lazy git if needed (recommended)**
+
+```bash
 sudo add-apt-repository ppa:lazygit-team/release
 sudo apt-get update
 sudo apt-get install lazygit
