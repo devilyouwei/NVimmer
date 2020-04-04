@@ -80,7 +80,7 @@ git clone https://github.com/devilyouwei/NVimmer.git
 cd NVimmer
 
 #Copy nvim configuration directory to your home_user directory
-cp -rf ./nvim ~/.config/
+cp -rf ./nvim/ ~/.config/
 cp ./.eslintrc.json ~/
 cp ./.prettierrc.json ~/
 ```
@@ -106,7 +106,8 @@ I strongly recommend to use the tool [nvm](https://github.com/nvm-sh/nvm) to man
 For Linux
 
 ```bash
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 ### Vim Plugin installation

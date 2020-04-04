@@ -66,12 +66,12 @@ sudo snap install --beta nvim --classic
 
 ### 克隆 NVimmer
 
-克隆NVimmer，切换到项目下，复制配置文件到用户目录下
+克隆 NVimmer，切换到项目下，复制配置文件到用户目录下
 
 ```bash
 git clone https://github.com/devilyouwei/NVimmer.git
 cd NVimmer
-cp -rf ./nvim ~/.config/
+cp -rf ./nvim/ ~/.config/
 cp ./.eslintrc.json ~/
 cp ./.prettierrc.json ~/
 ```
@@ -97,7 +97,8 @@ Vim-Plug 是一个强大的 vim 插件管理器
 Linux
 
 ```bash
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 ### 插件安装

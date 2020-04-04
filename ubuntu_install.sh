@@ -6,7 +6,7 @@ echo "|  \\| |\\ \\ / /| | '_ \` _ \\| '_ \` _ \\ / _ \\ '__|"
 echo "| |\\  | \\ V / | | | | | | | | | | | |  __/ |   "
 echo "|_| \\_|  \\_/  |_|_| |_| |_|_| |_| |_|\\___|_|"
 
-echo "Welcome to NVimmer, Make your NeoVim/Vim perform as IDE"
+echo "Welcome to NVimmer, Make your NeoVim/Vim perform as an IDE!!!"
 echo "Email: devilyouwei@gmail.com"
 echo "Waiting for installing, 3 seconds..."
 
@@ -47,7 +47,7 @@ status=$?
 if [ "$status" -eq 0 ]; then
     echo "ESlint found, next step..."
 else
-    echo "Instal eslint..."
+    echo "Install eslint..."
     (npm -g install eslint)
 fi
 npm -g install neovim
@@ -70,5 +70,8 @@ cp ./.prettierrc.json ~/
 echo "Install vim-plug------------------------------------------"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+echo "Clean trash and packages----------------------------------"
+sudo apt autoremove
 
 nvim -c PlugInstall
