@@ -18,6 +18,8 @@ status=$?
 if [ "$status" != 0 ]; then
     echo "Install Snap..."
     (sudo apt install snapd)
+    (echo "export PATH=$PATH:/snap/bin" >> ~/.bashrc)
+    (source ~/.bashrc)
 fi
 
 echo "Check NeoVim----------------------------------------------"
@@ -62,7 +64,7 @@ sudo apt install clang-format
 sudo snap install shfmt
 
 echo "Copy and Config Your NeoVim-------------------------------"
-cp -rf ./nvim ~/.config/
+cp -rf ./nvim/ ~/.config/
 cp ./.eslintrc.json ~/
 cp ./.prettierrc.json ~/
 
