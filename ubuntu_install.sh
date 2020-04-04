@@ -18,8 +18,7 @@ status=$?
 if [ "$status" != 0 ]; then
     echo "Install Snap..."
     (sudo apt install snapd)
-    (echo "export PATH=$PATH:/snap/bin" >> ~/.bashrc)
-    (source ~/.bashrc)
+    export PATH=$PATH:/snap/bin
 fi
 
 echo "Check NeoVim----------------------------------------------"
