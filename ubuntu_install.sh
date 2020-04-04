@@ -185,7 +185,8 @@ echo ""
 sleep 1
 
 echo "Install NeoVim Plugins------------------------------------"
-nvim -c PlugInstall
+nvim -c PlugInstall -c q -c q
+echo "Exit NeoVim now"
 echo "All the plugins are installed"
 echo "----------------------------------------------------------"
 echo ""
@@ -193,4 +194,4 @@ sleep 1
 
 echo ""
 echo "-------------------------------------------------------end"
-echo "Enjoy!"
+echo 'Enjoy! []~(￣▽￣)~*'
