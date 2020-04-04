@@ -38,7 +38,7 @@ if [ "$status" -eq 0 ]; then
     echo "NodeJS found, next step..."
 else
     echo "Install Node.js..."
-    (sudo snap install node --classic)
+    (snap install --edge node --classic)
 fi
 
 echo "Install ESLint--------------------------------------------"
