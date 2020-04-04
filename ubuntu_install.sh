@@ -1,5 +1,7 @@
 #!/bin/bash
 
+node_version='13/stable'
+
 echo " _   ___     ___                               "
 echo "| \\ | \\ \\   / (_)_ __ ___  _ __ ___   ___ _ __ "
 echo "|  \\| |\\ \\ / /| | '_ \` _ \\| '_ \` _ \\ / _ \\ '__|"
@@ -38,7 +40,7 @@ if [ "$status" -eq 0 ]; then
     echo "NodeJS found, next step..."
 else
     echo "Install Node.js..."
-    (snap install --edge node --classic)
+    (sudo snap install node --channel="$node_version" --classic)
 fi
 
 echo "Install ESLint--------------------------------------------"
