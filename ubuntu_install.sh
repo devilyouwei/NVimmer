@@ -63,6 +63,9 @@ sudo apt install clang-format
 sudo snap install shfmt
 
 echo "Copy and Config Your NeoVim-------------------------------"
+if [ ! -d ~/.config ];then
+  mkdir ~/.config
+fi
 cp -rf ./nvim/ ~/.config/
 cp ./.eslintrc.json ~/
 cp ./.prettierrc.json ~/
