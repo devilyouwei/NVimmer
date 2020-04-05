@@ -21,7 +21,7 @@ snap --version
 status=$?
 if [ "$status" != 0 ]; then
     echo "Install Snap..."
-    sudo apt install snapd
+    sudo apt install -y snapd
     export PATH=$PATH:/snap/bin
 fi
 echo "-----------------------------------------------------------"
@@ -59,14 +59,14 @@ python --version
 status=$?
 if [ "$status" != 0 ]; then
     echo "Install Python2..."
-    sudo apt install python
+    sudo apt install -y python
 fi
 
 python3 --version
 status=$?
 if [ "$status" != 0 ]; then
     echo "Install Python3..."
-    sudo apt install python3
+    sudo apt install -y python3
 fi
 echo "-----------------------------------------------------------"
 echo ""
@@ -77,7 +77,7 @@ perl -v
 status=$?
 if [ "$status" != 0 ]; then
     echo "Install Perl..."
-    sudo apt install perl
+    sudo apt install -y perl
 fi
 echo "-----------------------------------------------------------"
 echo ""
@@ -88,7 +88,7 @@ ruby -v
 status=$?
 if [ "$status" != 0 ]; then
     echo "Install ruby..."
-    sudo apt install ruby
+    sudo apt install -y ruby
 fi
 echo "-----------------------------------------------------------"
 echo ""
@@ -105,7 +105,7 @@ fi
 
 echo ""
 echo "Python2:"
-sudo apt install python-pip
+sudo apt install -y python-pip
 pip --version
 status=$?
 if [ "$status" -eq 0 ]; then
@@ -114,7 +114,7 @@ fi
 
 echo ""
 echo "Python3:"
-sudo apt install python3-pip
+sudo apt install -y python3-pip
 pip3 --version
 status=$?
 if [ "$status" -eq 0 ]; then
@@ -126,13 +126,13 @@ echo "Ruby:"
 gem -v
 status=$?
 if [ "$status" -eq 0 ]; then
-    sudo apt install ruby-dev
+    sudo apt install -y ruby-dev
     sudo gem install neovim
 fi
 
 echo ""
 echo "Perl:"
-sudo apt install cpanminus
+sudo apt install -y cpanminus
 cpanm -v
 if [ "$status" -eq 0 ]; then
     sudo cpanm Neovim::Ext
@@ -153,19 +153,19 @@ echo ""
 sleep 1
 
 echo "Install Astyle--------------------------------------------"
-sudo apt install astyle
+sudo apt install -y astyle
 echo "----------------------------------------------------------"
 echo ""
 sleep 1
 
 echo "Install Ctags---------------------------------------------"
-sudo apt install ctags
+sudo apt install -y ctags
 echo "----------------------------------------------------------"
 echo ""
 sleep 1
 
 echo "Install the other formatters------------------------------"
-sudo apt install clang-format
+sudo apt install -y clang-format
 sudo snap install shfmt
 echo "----------------------------------------------------------"
 echo ""
