@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#node_version='13/stable'
+#node_version=13
 source colors.sh
 
 green " _   ___     ___                               "
@@ -133,10 +133,10 @@ fi
 echo ""
 echo "Perl:"
 sudo apt install -y cpanminus
+sudo apt install pmuninstall
 cpanm -v
 if [ "$status" -eq 0 ]; then
     sudo cpanm Neovim::Ext
-    cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
 fi
 echo "----------------------------------------------------------"
 echo ""
