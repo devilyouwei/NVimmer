@@ -224,7 +224,7 @@ green "| |\\  | \\ V / | | | | | | | | | | | |  __/ |   "
 green "|_| \\_|  \\_/  |_|_| |_| |_|_| |_| |_|\\___|_|"
 
 echo "-------------------------Favour---------------------------"
-echo '(๑•̀ ㅂ•́ )و ✧ Like NVimmer? Go to:'
+echo '(๑ •̀ ㅂ•́ )و ✧ Like NVimmer? Go to:'
 echo ""
 blue 'https://github.com/devilyouwei/NVimmer'
 yellow '☆ ☆ ☆ ☆ ☆ '

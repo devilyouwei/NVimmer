@@ -51,7 +51,7 @@
     //eslint,js
     "eslint.autoFix": true,
     "eslint.autoFixOnSave": true,
-    "eslint.filetypes": ["javascript", "javascriptreact", "javascript.jsx", "html"],
+    "eslint.filetypes": ["javascript", "javascriptreact", "javascript.jsx"],
     "eslint.run": "onType",
 
     //java
