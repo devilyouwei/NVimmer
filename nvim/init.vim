@@ -353,7 +353,7 @@ map <C-Right> :bp<CR>        "上一个缓冲区
 noremap <F12> :syntax sync fromstart<CR>:Format<CR>
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "前端主要使用Prettier美化
-autocmd filetype markdown,css,yaml,typescript nnoremap <buffer> <F12> :Prettier<CR>
+autocmd filetype yaml nnoremap <buffer> <F12> :Prettier<CR>
 "编译型
 autocmd filetype cs,c,cpp,kotlin,sh noremap <buffer> <F12> :Autoformat<CR>
 "常用快捷键---------------------------------------------------------------------------------------
