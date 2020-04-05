@@ -6,7 +6,7 @@ function yellow(){
 }
 
 ## Error
-function bred(){
+function red(){
     echo -e "\033[31m\033[01m$1\033[0m"
 }
 

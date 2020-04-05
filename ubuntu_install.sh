@@ -228,3 +228,5 @@ echo ""
 blue 'https://github.com/devilyouwei/NVimmer'
 yellow '☆ ☆ ☆ ☆ ☆ '
 echo ""
+red 'Remeber to restart the terminal or reconnect to the server, then type nvim!'
+echo ""
