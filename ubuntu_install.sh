@@ -136,6 +136,7 @@ sudo apt install -y cpanminus
 cpanm -v
 if [ "$status" -eq 0 ]; then
     sudo cpanm Neovim::Ext
+    cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
 fi
 echo "----------------------------------------------------------"
 echo ""
@@ -171,6 +172,12 @@ echo "----------------------------------------------------------"
 echo ""
 sleep 1
 
+echo "Install xclip---------------------------------------------"
+sudo apt install -y xclip
+echo "----------------------------------------------------------"
+echo ""
+sleep 1
+
 echo "Copy and Config Your NeoVim-------------------------------"
 if [ ! -d ~/.config ]; then
     mkdir ~/.config
@@ -191,7 +198,7 @@ echo ""
 sleep 1
 
 echo "Clean trash and packages----------------------------------"
-sudo apt autoremove
+sudo apt autoremove -y
 echo "----------------------------------------------------------"
 echo ""
 sleep 1
