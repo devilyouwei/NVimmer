@@ -217,6 +217,7 @@ sudo cpanm Neovim::Ext
 
 **快捷键**
 
+-   **Ctrl-C, Ctrl-V, Ctrl-X** 已经映射好了，可以和系统剪贴板互通，复制粘贴
 -   Emmet html 自动生成闭合 html 标签, 插入模式下按：**Ctrl-O** 参考'Emmet'官网用法
 -   打开浮动终端: **F4**
 -   保存: **F5**

@@ -237,6 +237,7 @@ sudo apt-get install lazygit
 
 **Quick keys**
 
+-   **Ctrl-C, Ctrl-V, Ctrl-X** map to system clipboard, easy to copy and parse
 -   Emmet HTML create tags automotically: **Ctrl-O**. Refer to 'Emmet'
 -   Open Float Terminal: **F4**
 -   Save: **F5**
