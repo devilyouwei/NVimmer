@@ -16,7 +16,7 @@ byellow "Waiting for installing, 3 seconds..."
 sleep 3
 
 echo ""
-echo "Check snap------------------------------------------------"
+echo "Check snap-------------------------------------------------"
 snap --version
 status=$?
 if [ "$status" != 0 ]; then
@@ -24,22 +24,22 @@ if [ "$status" != 0 ]; then
     sudo apt install snapd
     export PATH=$PATH:/snap/bin
 fi
-echo "----------------------------------------------------------"
+echo "-----------------------------------------------------------"
 echo ""
 sleep 1
 
-echo "Check NeoVim----------------------------------------------"
+echo "Check NeoVim-----------------------------------------------"
 nvim -v
 status=$?
 if [ "$status" != 0 ]; then
     echo "Install NeoVim..."
     sudo snap install --beta nvim --classic
 fi
-echo "----------------------------------------------------------"
+echo "-----------------------------------------------------------"
 echo ""
 sleep 1
 
-echo "Check Node.js---------------------------------------------"
+echo "Check Node.js----------------------------------------------"
 node -v
 status=$?
 if [ "$status" != 0 ]; then
@@ -50,11 +50,11 @@ if [ "$status" != 0 ]; then
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
     nvm install stable
 fi
-echo "----------------------------------------------------------"
+echo "-----------------------------------------------------------"
 echo ""
 sleep 1
 
-echo "Check Python (both 2 and 3)-------------------------------"
+echo "Check Python (both 2 and 3)--------------------------------"
 python --version
 status=$?
 if [ "$status" != 0 ]; then
@@ -68,7 +68,7 @@ if [ "$status" != 0 ]; then
     echo "Install Python3..."
     sudo apt install python3
 fi
-echo "----------------------------------------------------------"
+echo "-----------------------------------------------------------"
 echo ""
 sleep 1
 
@@ -79,7 +79,18 @@ if [ "$status" != 0 ]; then
     echo "Install Perl..."
     sudo apt install perl
 fi
-echo "----------------------------------------------------------"
+echo "-----------------------------------------------------------"
+echo ""
+sleep 1
+
+echo "Check Ruby-------------------------------------------------"
+ruby -v
+status=$?
+if [ "$status" != 0 ]; then
+    echo "Install ruby..."
+    sudo apt install ruby
+fi
+echo "-----------------------------------------------------------"
 echo ""
 sleep 1
 
@@ -94,19 +105,23 @@ fi
 
 echo ""
 echo "Python2:"
-sudo apt install python-pip
 pip --version
 status=$?
 if [ "$status" -eq 0 ]; then
+    pip install neovim
+else
+    sudo apt install python-pip
     pip install neovim
 fi
 
 echo ""
 echo "Python3:"
-sudo apt install python3-pip
 pip3 --version
 status=$?
 if [ "$status" -eq 0 ]; then
+    pip3 install neovim
+else
+    sudo apt install python3-pip
     pip3 install neovim
 fi
 
@@ -115,15 +130,18 @@ echo "Ruby:"
 gem -v
 status=$?
 if [ "$status" -eq 0 ]; then
-    gem install neovim
+    sudo apt install ruby-dev
+    sudo gem install neovim
 fi
 
 echo ""
 echo "Perl:"
-sudo apt install cpanminus
 cpanm -v
 if [ "$status" -eq 0 ]; then
-    cpanm Neovim::Ext
+    sudo cpanm Neovim::Ext
+else
+    sudo apt install cpanminus
+    sudo cpanm Neovim::Ext
 fi
 echo "----------------------------------------------------------"
 echo ""
@@ -186,8 +204,8 @@ sleep 1
 
 echo "Install NeoVim Plugins------------------------------------"
 nvim -c PlugInstall -c q -c q
-echo "Exit NeoVim now"
-echo "All the plugins are installed"
+echo "Exit NeoVim..."
+echo "All the plugins are installed!"
 echo "----------------------------------------------------------"
 echo ""
 sleep 1
@@ -197,14 +215,16 @@ echo "-------------------------------------------------------end"
 echo 'Enjoy! ( ￣▽ ￣)～■ *Cheers*□～(￣▽ ￣)'
 
 echo ""
-echo '--------------------NVimmer-------------------------------'
+echo "--------------------NVimmer-------------------------------"
 green " _   ___     ___                               "
 green "| \\ | \\ \\   / (_)_ __ ___  _ __ ___   ___ _ __ "
 green "|  \\| |\\ \\ / /| | '_ \` _ \\| '_ \` _ \\ / _ \\ '__|"
 green "| |\\  | \\ V / | | | | | | | | | | | |  __/ |   "
 green "|_| \\_|  \\_/  |_|_| |_| |_|_| |_| |_|\\___|_|"
 
-echo "-------------------------Favour--------------------------"
+echo "-------------------------Favour---------------------------"
 echo '(๑•̀ ㅂ•́ )و ✧ Like NVimmer? Go to:'
+echo ""
 blue 'https://github.com/devilyouwei/NVimmer'
 yellow '☆ ☆ ☆ ☆ ☆ '
+echo ""

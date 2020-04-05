@@ -83,13 +83,15 @@ cp ./.prettierrc.json ~/
 curl -sL install-node.now.sh/lts | bash
 ```
 
-或者，nvm安装
+或者，nvm 安装
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
 nvm install stable
 ```
 
@@ -99,7 +101,7 @@ nvm install stable
 
 [https://nodejs.org](https://nodejs.org/)
 
-注意：这里千万不要用snap安装，无法通过 `:checkhealth` 检查
+注意：这里千万不要用 snap 安装，无法通过 `:checkhealth` 检查
 
 ### 安装 Vim-Plug
 
@@ -115,6 +117,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 进入 nvim，输入:PlugInstall 安装所有插件
 
 或者在终端中执行：
+
 ```
 nvim -c PlugInstall
 ```
@@ -163,7 +166,8 @@ npm install -g neovim
 2. 针对 Ruby 开发者
 
 ```bash
-gem install neovim
+sudo apt install ruby-dev
+sudo gem install neovim
 ```
 
 3. 针对前端和 JS 开发者，全局安装 eslint
@@ -178,17 +182,16 @@ npm install -g eslint
 
 如需用到这些 lint 插件，正确的做法应该是在开发**项目中**配置 package.json 或者 eslintrc 文件来配置规则，然后使用'npm install'局部安装到**项目中**，
 
-
 4. 针对 tagbar 安装 ctags，针对 autoformat 安装 astyle
 
 ```bash
 sudo apt install ctags
 sudo apt install astyle
 sudo apt install clang-format
-snap install shfmt
+sudo snap install shfmt
 ```
 
-5. 安装lazy git (推荐)
+5. 安装 lazy git (推荐)
 
 ```
 sudo add-apt-repository ppa:lazygit-team/release
@@ -207,7 +210,7 @@ pip3 install neovim
 
 ```
 sudo apt install cpanminus
-cpanm Neovim::Ext
+sudo cpanm Neovim::Ext
 ```
 
 ## 使用
@@ -257,6 +260,8 @@ sudo sysctl --system
 ## 不想说再见 :sob:
 
 如果您是一个 Vim 的死忠粉，不想要迁移到 NeoVim，仍想要那一套精简高效的 Vim 配置，可以继续使用我的 Vimmer 的配置：
+
+另外 Windows 用户，仍然推荐 Vimmer 的配置！
 
 [https://github.com/devilyouwei/Vimmer](https://github.com/devilyouwei/Vimmer)
 

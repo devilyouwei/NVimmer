@@ -90,13 +90,23 @@ cp ./.prettierrc.json ~/
 
 I strongly **recommend** to use the tool [nvm](https://github.com/nvm-sh/nvm) to manage your nodejs!
 
-```bash
-# official node install script
-curl -sL install-node.now.sh/lts | bash
+**official node install script**
 
-# use nvm
+```bash
+curl -sL install-node.now.sh/lts | bash
+```
+
+or
+
+**use nvm**
+
+```
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-source ~/.bashrc
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
 nvm install table
 ```
 
@@ -168,17 +178,19 @@ npm install -g neovim
 **For Ruby developers**
 
 ```bash
-gem install neovim
+sudo apt install ruby-dev
+sudo gem install neovim
 ```
 
 **For Perl**
 
 ```bash
 sudo apt install cpanminus
-cpanm Neovim::Ext
+sudo cpanm Neovim::Ext
 ```
 
 **For Python**
+
 ```bash
 pip install neovim #py2
 pip3 install nepvim #py3
@@ -202,7 +214,7 @@ Remember, put `eslint-plugin-*` only in your **project folder**, not **globally*
 sudo apt install ctags
 sudo apt install astyle
 sudo apt install clang-format
-snap install shfmt
+sudo snap install shfmt
 ```
 
 **Install lazy git if needed (recommended)**
