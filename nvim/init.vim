@@ -31,8 +31,8 @@ Plug 'voldikss/vim-floaterm'
 let g:floaterm_type = 'floating'
 let g:floaterm_winblend = '25'
 let g:floaterm_position = 'center'
-hi FloatermNF guibg=black
-hi FloatermBorderNF guibg=orange guifg=cyan
+"hi FloatermNF guibg=black
+"hi FloatermBorderNF guibg=orange guifg=green
 Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar', {'on':'TagbarToggle'}
 Plug 'Chiel92/vim-autoformat'
