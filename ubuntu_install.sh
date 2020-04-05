@@ -105,23 +105,19 @@ fi
 
 echo ""
 echo "Python2:"
+sudo apt install python-pip
 pip --version
 status=$?
 if [ "$status" -eq 0 ]; then
-    pip install neovim
-else
-    sudo apt install python-pip
     pip install neovim
 fi
 
 echo ""
 echo "Python3:"
+sudo apt install python3-pip
 pip3 --version
 status=$?
 if [ "$status" -eq 0 ]; then
-    pip3 install neovim
-else
-    sudo apt install python3-pip
     pip3 install neovim
 fi
 
@@ -136,11 +132,9 @@ fi
 
 echo ""
 echo "Perl:"
+sudo apt install cpanminus
 cpanm -v
 if [ "$status" -eq 0 ]; then
-    sudo cpanm Neovim::Ext
-else
-    sudo apt install cpanminus
     sudo cpanm Neovim::Ext
 fi
 echo "----------------------------------------------------------"
