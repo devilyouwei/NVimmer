@@ -47,10 +47,10 @@ if [ "$status" != 0 ]; then
     echo "Install NeoVim..."
     sudo snap install --beta nvim --classic
     if [ "$?" != 0 ]; then
-        sudo apt install software-properties-common
-        sudo add-apt-repository ppa:neovim-ppa/stable
-        sudo apt update
-        sudo apt install neovim
+        sudo apt install -y software-properties-common
+        sudo add-apt-repository ppa:neovim-ppa/stable -y
+        sudo apt update -y
+        sudo apt install -y neovim
     fi
 fi
 echo "-----------------------------------------------------------"
