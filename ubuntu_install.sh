@@ -16,6 +16,18 @@ byellow "Waiting for installing, 3 seconds..."
 sleep 3
 
 echo ""
+echo "Check curl-------------------------------------------------"
+curl --version
+status=$?
+if [ "$status" != 0 ]; then
+    echo "Install Curl..."
+    sudo apt install -y curl
+fi
+echo "-----------------------------------------------------------"
+echo ""
+sleep 1
+
+echo ""
 echo "Check snap-------------------------------------------------"
 snap --version
 status=$?
