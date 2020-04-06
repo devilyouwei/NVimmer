@@ -188,7 +188,7 @@ echo "Install the other formatters------------------------------"
 sudo apt install -y clang-format
 sudo snap install shfmt
 if [ "$?" != 0 ]; then
-    git clone git@github.com:tmknom/shfmt.git
+    git clone https://github.com/tmknom/shfmt.git
     cd shfmt
     make install
 fi
