@@ -46,6 +46,12 @@ status=$?
 if [ "$status" != 0 ]; then
     echo "Install NeoVim..."
     sudo snap install --beta nvim --classic
+    if [ "$?" != 0 ]; then
+        sudo apt install software-properties-common
+        sudo add-apt-repository ppa:neovim-ppa/stable
+        sudo apt update
+        sudo apt install neovim
+    fi
 fi
 echo "-----------------------------------------------------------"
 echo ""
@@ -181,6 +187,11 @@ sleep 1
 echo "Install the other formatters------------------------------"
 sudo apt install -y clang-format
 sudo snap install shfmt
+if [ "$?" != 0 ]; then
+    git clone git@github.com:tmknom/shfmt.git
+    cd shfmt
+    make install
+fi
 echo "----------------------------------------------------------"
 echo ""
 sleep 1
@@ -226,7 +237,7 @@ sleep 1
 
 read -p "Set NeoVim as the default editor or replace vim?[Y/N]: " confirm
 
-if [ "$confirm"=="y" ] || [ "confrim"=="Y" ] || [ "$confirm"=="yes" ] || [ "$confirm"=="Yes" ]; then
+if [ "$confirm" = "y" ] || [ "$confrim" = "Y" ] || [ "$confirm" = "yes" ] || [ "$confirm" = "Yes" ]; then
     echo "export EDITOR=/snap/bin/nvim" >>~/.bashrc
     echo "alias vim='nvim'" >>~/.bashrc
     echo "alias vi='nvim'" >>~/.bashrc
