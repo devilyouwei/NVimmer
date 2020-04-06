@@ -136,7 +136,8 @@ sudo apt install -y cpanminus
 sudo apt install pmuninstall
 cpanm -v
 if [ "$status" -eq 0 ]; then
-    sudo cpanm Neovim::Ext
+    cpanm --local-lib ~/perl5 Neovim::Ext
+    echo 'eval $(perl -I $HOME/perl5/lib/perl5 -Mlocal::lib)' >>~/.bashrc
 fi
 echo "----------------------------------------------------------"
 echo ""
@@ -211,9 +212,17 @@ echo "----------------------------------------------------------"
 echo ""
 sleep 1
 
+read -p "Set NeoVim as the default editor or replace vim?[Y/N]: " confirm
+
+if [ "$confirm"=="y" ] || [ "confrim"=="Y" ] || [ "$confirm"=="yes" ] || [ "$confirm"=="Yes" ]; then
+    echo "export EDITOR=/snap/bin/nvim" >>~/.bashrc
+    echo "alias vim='nvim'" >>~/.bashrc
+    echo "alias vi='nvim'" >>~/.bashrc
+fi
+
 echo ""
-echo "-------------------------------------------------------end"
-echo 'Enjoy! ( ￣▽ ￣)～■ *Cheers*□～(￣▽ ￣)'
+echo "-------------------------------------------------------END"
+echo 'Enjoy! ( ￣▽ ￣)～■ *Cheers* □ ～(￣▽ ￣)'
 
 echo ""
 echo "--------------------NVimmer-------------------------------"
@@ -223,7 +232,7 @@ green "|  \\| |\\ \\ / /| | '_ \` _ \\| '_ \` _ \\ / _ \\ '__|"
 green "| |\\  | \\ V / | | | | | | | | | | | |  __/ |   "
 green "|_| \\_|  \\_/  |_|_| |_| |_|_| |_| |_|\\___|_|"
 
-echo "-------------------------Favour---------------------------"
+echo "--------------------Favour--------------------------------"
 echo '(๑ •̀ ㅂ•́ )و ✧ Like NVimmer? Go to:'
 echo ""
 blue 'https://github.com/devilyouwei/NVimmer'

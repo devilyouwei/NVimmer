@@ -101,7 +101,8 @@ nvm install stable
 
 [https://nodejs.org](https://nodejs.org/)
 
-注意：这里千万不要用 snap 安装，无法通过 `:checkhealth` 检查
+注意：这里千万**不要用 snap 安装**，无法通过 `:checkhealth` 检查
+另外：nvm 在.bashrc 中添加的脚本可能拖慢打开 bash 的速度，如果不用 nvm 可以删除那段脚本
 
 ### 安装 Vim-Plug
 

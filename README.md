@@ -193,7 +193,7 @@ sudo cpanm Neovim::Ext
 
 ```bash
 pip install neovim #py2
-pip3 install nepvim #py3
+pip3 install neovim #py3
 ```
 
 **For front-end and JS developers**
