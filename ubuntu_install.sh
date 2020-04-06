@@ -48,7 +48,7 @@ if [ "$status" != 0 ]; then
     sudo snap install --beta nvim --classic
     if [ "$?" != 0 ]; then
         sudo apt install -y software-properties-common
-        sudo add-apt-repository ppa:neovim-ppa/stable -y
+        sudo add-apt-repository ppa:neovim-ppa/unstable -y
         sudo apt update -y
         sudo apt install -y neovim
     fi
@@ -187,11 +187,6 @@ sleep 1
 echo "Install the other formatters------------------------------"
 sudo apt install -y clang-format
 sudo snap install shfmt
-if [ "$?" != 0 ]; then
-    git clone https://github.com/tmknom/shfmt.git
-    cd shfmt
-    make install
-fi
 echo "----------------------------------------------------------"
 echo ""
 sleep 1
