@@ -1,0 +1,65 @@
+{
+    "tabnine.priority": 0,
+
+    "emmet.priority": 1,
+    "emmet.excludeLanguages": ["vue", "typescript", "javascript"],
+
+    "prettier.trailingComma": "none",
+    "prettier.printWidth": 120,
+    "prettier.tabWidth": 4,
+    "prettier.semi": false,
+    "prettier.jsxSingleQuote": false,
+    "prettier.bracketSpacing": true,
+    "prettier.htmlWhitespaceSensitivity": "ignore",
+    "prettier.singleQuote": true,
+    "prettier.useTabs": false,
+    "prettier.arrowParens": "avoid",
+    "prettier.proseWrap": "always",
+
+    "vetur.format.enable": true,
+    "vetur.validation.style": true,
+    "vetur.validation.script": true,
+    "vetur.validation.template": true,
+    "vetur.completion.autoImport": true,
+    "vetur.format.defaultFormatterOptions": {
+        "prettier": {
+            "trailingComma": "none",
+            "printWidth": 120,
+            "jsxBracketSameLine": true,
+            "vueIndentScriptAndStyle": false,
+            "tabWidth": 4,
+            "semi": false,
+            "jsxSingleQuote": false,
+            "bracketSpacing": true,
+            "htmlWhitespaceSensitivity": "css",
+            "singleQuote": true
+        }
+    },
+    "vetur.format.defaultFormatter.html": "prettier",
+    "vetur.format.defaultFormatter.js": "prettier",
+    "vetur.format.defaultFormatter.css": "prettier",
+    "vetur.format.defaultFormatter.less": "prettier",
+    "vetur.format.defaultFormatter.scss": "prettier",
+    "vetur.format.defaultFormatter.ts": "prettier",
+    "vetur.format.defaultFormatter.postcss": "prettier",
+
+    "json.format.enable": false,
+
+    "html.format.enable": true,
+    "html.validate.styles": true,
+    "html.validate.scripts": true,
+    "html.format.wrapAttributes": "auto",
+
+    "eslint.alwaysShowStatus": true,
+    "eslint.format.enable": false,
+    "eslint.autoFixOnSave": false,
+    "eslint.trace.server": "verbose",
+    "eslint.run": "onType",
+
+    "java.errors.incompleteClasspath.severity": "ignore",
+
+    "markdownlint.config": {
+        "line-length": false
+    },
+    "markdown-preview-enhanced.previewTheme": "atom-material.css"
+}
