@@ -1,18 +1,20 @@
 ![logo](./example/logo.png)
 
-_Continuously updating..._
+✌ Make your Vim/NeoVim like an IDE!
 
 ![example](example/ex0.png)
 
-# NVimmer(EN)
+# NVimmer (English)
 
-[中文说明](README_ZH.md)
+[中文说明 Chinese](README_ZH.md)
 
-A simple, fast and efficient **VIM IDE Configuration**, it is especially nice for the full stack developers on Linux.
+A simple, fast but efficient **VIM IDE-like Configuration**, it is especially nice for the web full stack developers on
+Linux.
 
-With Monaco nerd font on Linux.
+It recommends **Monaco nerd font** on Linux.
 
-NVimmer is a new version of [Vimmer](https://github.com/devilyouwei/Vimmer). The configuration of NVimmer will be based on NeoVim instead of Vim.
+NVimmer is a new version of [Vimmer](https://github.com/devilyouwei/Vimmer). The configuration of NVimmer will be based
+on NeoVim instead of Vim.
 
 For **Windows** [Click Here](https://github.com/devilyouwei/Vimmer)
 
@@ -39,7 +41,7 @@ Attention: NVimmer will use **Prettier and eslint** as the default linter and fo
 
 ## [Recommended] Ubuntu/Deepin Onekey Install 🚤 🚤 🚤
 
-Execute the following commands, install everything! ✌
+Execute the following commands, install everything automatically! ✌
 
 🌟 **curl [recommend]**
 
@@ -56,13 +58,14 @@ wget https://raw.githubusercontent.com/devilyouwei/NVimmer/master/ubuntu_install
 **Script Fail**
 
 -   During the process of installations, the script may fail to download something, especially in China.
--   If the script is interrupted or exit with errors, please run it again, until it success, or try to change the network environment.
+-   If the script is interrupted or exit with errors, please run it again, until it success, or try to change the
+    network environment.
 -   After all the installations are finished, if nvim still doesn't work well, same with point 2, try again!
 -   For the first time to start nvim, please restart terminal and then reopen nvim.
 
 **Monaco Nerd Fonts**
 
-Use wget (must) to download the font, and then open a terminal preference to config the font to `Monaco Nerd Font`
+Use wget (must) to download the font, and then open the terminal preference to change the font to `Monaco Nerd Font`
 
 ```bash
 wget https://github.com/devilyouwei/linux-font/blob/master/Monaco/Nerd/YaheiMonacoNerd.ttf?raw=true -O ~/.fonts/MonacoNerdMono.ttf
@@ -95,7 +98,6 @@ Or, You would like to download and install the font manually.
 ![example](example/ex9.png)
 
 ![example](example/ex10.png)
-
 
 ## Quick Start (Manually, Step by Step) 🔨 🔨 🔨
 
@@ -161,7 +163,8 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 nvm install stable
 ```
 
-The node version in ubuntu apt is too old, please refer to the node official website to install the latest version. Mine is 14 and the node official website is [https://nodejs.org](https://nodejs.org/)
+The node version in ubuntu apt is too old, please refer to the node official website to install the latest version. Mine
+is 14 and the node official website is [https://nodejs.org](https://nodejs.org/)
 
 Attention: **DON'T USE SNAP** to install nodejs! NeoVim `:checkhealth` not passed!
 
@@ -190,7 +193,8 @@ Note: coc-plugins will be installed automotically when you start nvim.
 
 ### Supplementary Installation
 
-The following options can be customized for different developers, and fullstack can install all of them, which will never affect the performance.
+The following options can be customized for different developers, and fullstack can install all of them, which will
+never affect the performance.
 
 **For node developers**
 
@@ -228,9 +232,11 @@ Note: never support python2 any more, include pip2
 npm install -g eslint
 ```
 
-1. '.eslintrc.json' and '.prettierrc.json' in home dir is the global eslint config, don't change it or add any plugin globally!
+1. '.eslintrc.json' and '.prettierrc.json' in home dir is the global eslint config, don't change it or add any plugin
+   globally!
 
-2. If you are using vue, html, react in your projects and want to lint such files. You should install the eslint plugins in **project** dir by using package.json or eslinrc.json.
+2. If you are using vue, html, react in your projects and want to lint such files. You should install the eslint plugins
+   in **project** dir by using package.json or eslinrc.json.
 
 Remember, put `eslint-plugin-*` only in your **project folder**, not **globally**!
 
@@ -257,7 +263,8 @@ sudo apt-get install lazygit
 
 -   coc.nvim doesn't work. To ':checkhealth' in neovim and possibly your neovim is under 0.3.x, update your neovim
 
--   Float window doesn't work. Float window feature is added after neovim 0.4.x version. Please install the latest neovim!
+-   Float window doesn't work. Float window feature is added after neovim 0.4.x version. Please install the latest
+    neovim!
 
 ## How To Use
 
