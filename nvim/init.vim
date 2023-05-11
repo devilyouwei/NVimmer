@@ -38,7 +38,7 @@ let g:coc_global_extensions=[
             \]
 
 " code syntax
-Plug 'thesis/vim-solidity'
+Plug 'thesis/vim-solidity', {'branch': 'main' }
 Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue',{'for':'vue'}
 Plug 'cjrh/vim-conda',{'for':'python'}

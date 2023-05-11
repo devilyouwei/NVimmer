@@ -61,5 +61,6 @@
     "markdownlint.config": {
         "line-length": false
     },
-    "markdown-preview-enhanced.previewTheme": "atom-material.css"
+    "markdown-preview-enhanced.previewTheme": "atom-material.css",
+    "snippets.ultisnips.pythonPrompt": false
 }
