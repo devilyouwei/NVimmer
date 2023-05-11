@@ -20,30 +20,33 @@ function blue() {
     echo -e "\033[34m$1\033[0m"
 }
 
+echo ''
+echo '================================================================'
 green " _   ___     ___                               "
 green "| \\ | \\ \\   / (_)_ __ ___  _ __ ___   ___ _ __ "
 green "|  \\| |\\ \\ / /| | '_ \` _ \\| '_ \` _ \\ / _ \\ '__|"
 green "| |\\  | \\ V / | | | | | | | | | | | |  __/ |   "
 green "|_| \\_|  \\_/  |_|_| |_| |_|_| |_| |_|\\___|_|"
-
-green "Welcome to NVimmer, Make your NeoVim/Vim perform as an IDE!!!"
-green '专门为 NeoVim 打造的一键式IDE脚本'
-blue "Email: devilyouwei@gmail.com"
-
-echo ""
-byellow '1. 如在大陆地区使用，有些插件需要科学上网...'
-echo ""
-byellow '2. 大陆地区请更换gem, npm, pip等包管理器的镜像为国内源'
+echo '================================================================'
+green "Welcome to NVimmer, Make your NeoVim/Vim perform like an IDE!!!"
+blue 'Contributors:'
+blue 'devilyouwei'
+blue 'https://github.com/devilyouwei/NVimmer'
+echo ''
+red "Specific tips for users in China Mainlaind:"
+byellow '1. 有些插件需要科学上网...'
+byellow '2. 更换gem, npm, pip等包管理器的镜像为国内源'
 byellow '(When in China, change the npm, gem, pip source to China Mainland)'
-echo ""
-byellow '3. 建议您的系统是干净的，如果已经有vim或者neovim的配置，请提前备份好，会被覆盖，按<Ctrl-C>结束该脚本'
-echo ""
-byellow "Waiting for installing, 3 seconds..."
-echo ""
+echo ''
+red 'We strongly suggest your system is fresh and clear.'
+red 'If you have vim or neovim configs, you need to make the backup. Press <Ctrl-C> to stop.'
+red '我们建议您的系统是干净的，如果已经有vim或者neovim的配置，应该提前备份，否则会被覆盖，按<Ctrl-C>结束该脚本'
+red "Waiting for installing, 5 seconds..."
+echo ''
 
-sleep 3
+sleep 5
 
-echo "Install Linux Compile Tools and Env------------------------"
+echo "Install Linux Compiling Tools and Basic Env------------------------"
 sudo --version
 status=$?
 if [ "$status" != 0 ]; then
@@ -103,7 +106,7 @@ node -v
 status=$?
 if [ "$status" != 0 ]; then
     echo "Install Node.js..."
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
     if [ "$?" != 0 ]; then
         red "Network Error: curl fail to download 'nvm'"
         exit 1
@@ -116,14 +119,7 @@ echo "-----------------------------------------------------------"
 echo ""
 sleep 1
 
-echo "Check Python (both 2 and 3)--------------------------------"
-python --version
-status=$?
-if [ "$status" != 0 ]; then
-    echo "Install Python2..."
-    sudo apt install -y python
-fi
-
+echo "Check Python3----------------------------------------------"
 python3 --version
 status=$?
 if [ "$status" != 0 ]; then
@@ -174,6 +170,7 @@ npm -v
 if [ "$?" -eq 0 ]; then
     npm -g install neovim
 fi
+sleep 1
 
 # never support python2 and pip2
 
@@ -183,8 +180,10 @@ pip3 --version
 if [ "$?" != 0 ]; then
     sudo apt install -y python3-pip
 fi
+sudo apt install python3-neovim
 pip3 install neovim
 pip3 install neovim-remote
+sleep 1
 
 echo ""
 echo "Ruby:"
@@ -193,6 +192,7 @@ if [ "$?" -eq 0 ]; then
     sudo apt install -y ruby-dev
     sudo gem install neovim
 fi
+sleep 1
 
 echo ""
 echo "Perl:"
@@ -318,29 +318,26 @@ if [ "$confirm" = "y" ] || [ "$confrim" = "Y" ] || [ "$confirm" = "yes" ] || [ "
 fi
 
 echo ""
-echo "-------------------------------------------------------END"
-echo 'Enjoy! ( ￣▽ ￣)～■ *Cheers* □ ～(￣▽ ￣)'
+echo '================================================================'
+green 'Enjoy! ( ￣▽ ￣)～■ *Cheers* □ ～(￣▽ ￣)'
+green '安装完毕！Finish!'
 
 echo ""
-echo "--------------------NVimmer-------------------------------"
+echo '================================================================'
 green " _   ___     ___                               "
 green "| \\ | \\ \\   / (_)_ __ ___  _ __ ___   ___ _ __ "
 green "|  \\| |\\ \\ / /| | '_ \` _ \\| '_ \` _ \\ / _ \\ '__|"
 green "| |\\  | \\ V / | | | | | | | | | | | |  __/ |   "
 green "|_| \\_|  \\_/  |_|_| |_| |_|_| |_| |_|\\___|_|"
+echo '================================================================'
+echo ""
 
-echo "--------------------Favour--------------------------------"
+yellow '☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ '
 echo '(๑ •̀ ㅂ•́ )و ✧ Like NVimmer? Go to:'
-echo ""
 blue 'https://github.com/devilyouwei/NVimmer'
-echo ""
-yellow '☆ ☆ ☆ ☆ ☆ '
-echo ""
 blue 'devilyouwei@gmail.com'
-blue 'https://www.devil.ren'
-blue '2ND Ave Long Branch NJ US'
-blue '@devilyouwei'
-echo ""
-byellow '(Remeber to restart the terminal or reconnect to the server, then type nvim!)'
-byellow '使用neovim前请先重启终端，然后输入vi即可'
-echo ""
+yellow '☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ ☆ '
+
+echo ''
+byellow 'Remeber to restart the terminal or reconnect to the server, then type nvim!'
+byellow '安装完毕，请先重启终端，然后输入vi即可'
