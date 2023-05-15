@@ -43,22 +43,20 @@ Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue',{'for':'vue'}
 Plug 'cjrh/vim-conda',{'for':'python'}
 Plug 'uiiaoo/java-syntax.vim', {'for':'java'}
-"Plug 'othree/html5.vim', {'for':['html','vue','php']}
 Plug 'ap/vim-css-color'
-"Plug 'hail2u/vim-css3-syntax',{'for':['html','vue','php','css']}
 Plug 'stephpy/vim-yaml',{'for':'yaml'}
 Plug 'tpope/vim-haml',{'for':['haml','sass','scss']}
 " themes
 Plug 'flazz/vim-colorschemes'
 Plug 'jacoborus/tender.vim'
 Plug 'majutsushi/tagbar', {'on':'TagbarToggle'}
-"let g:tagbar_ctags_bin='/opt/homebrew/Cellar/ctags/5.8_2/bin/ctags'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='qwq'
 " others
+Plug 'jiangmiao/auto-pairs'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
