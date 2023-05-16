@@ -89,7 +89,7 @@ nvim -v
 status=$?
 if [ "$status" != 0 ]; then
     echo "Install NeoVim..."
-    sudo snap install --beta nvim --classic
+    sudo snap install nvim --classic
     if [ "$?" != 0 ]; then
         sudo apt install -y software-properties-common
         sudo add-apt-repository ppa:neovim-ppa/unstable -y
@@ -152,17 +152,6 @@ echo "-----------------------------------------------------------"
 echo ""
 sleep 1
 
-echo "Check Latex------------------------------------------------"
-latexmk -v
-status=$?
-if [ "$status" != 0 ]; then
-    echo "Install Latexmk..."
-    sudo apt install -y latexmk
-fi
-echo "-----------------------------------------------------------"
-echo ""
-sleep 1
-
 echo "Install NeoVim Providers-----------------------------------"
 echo ""
 echo "Node:"
@@ -180,7 +169,7 @@ pip3 --version
 if [ "$?" != 0 ]; then
     sudo apt install -y python3-pip
 fi
-sudo apt install python3-neovim
+# sudo apt install python3-neovim
 pip3 install neovim
 pip3 install neovim-remote
 sleep 1
@@ -257,14 +246,14 @@ sleep 1
 
 green "Config Your NeoVim---------------------------------------"
 curl -o ~/.config/nvim/init.vim --create-dirs \
-    https://raw.githubusercontent.com/devilyouwei/NVimmer/master/nvim/init.vim
+    https://raw.githubusercontent.com/devilyouwei/NVimmer/main/nvim/init.vim
 if [ "$?" != 0 ]; then
     red "Network Error: curl fail to download 'init.vim'"
     exit 1
 fi
 
 curl -o ~/.config/nvim/coc-settings.json --create-dirs \
-    https://raw.githubusercontent.com/devilyouwei/NVimmer/master/nvim/coc-settings.json
+    https://raw.githubusercontent.com/devilyouwei/NVimmer/main/nvim/coc-settings.json
 if [ "$?" != 0 ]; then
     red "Network Error: curl fail to download 'coc-settings.json'"
     exit 1
