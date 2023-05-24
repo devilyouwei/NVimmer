@@ -16,7 +16,6 @@ let g:coc_global_extensions=[
             \'coc-clangd',
             \'coc-java',
             \'coc-yaml',
-            \'coc-vetur',
             \'@yaegassy/coc-volar',
             \'@yaegassy/coc-volar-tools',
             \'coc-pyright',
