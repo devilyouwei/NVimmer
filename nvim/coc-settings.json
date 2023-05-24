@@ -16,39 +16,14 @@
     "prettier.arrowParens": "avoid",
     "prettier.proseWrap": "always",
 
-    "vetur.format.enable": true,
-    "vetur.validation.style": true,
-    "vetur.validation.script": true,
-    "vetur.validation.template": true,
-    "vetur.completion.autoImport": true,
-    "vetur.format.defaultFormatterOptions": {
-        "prettier": {
-            "trailingComma": "none",
-            "printWidth": 120,
-            "jsxBracketSameLine": true,
-            "vueIndentScriptAndStyle": false,
-            "tabWidth": 4,
-            "semi": false,
-            "jsxSingleQuote": false,
-            "bracketSpacing": true,
-            "htmlWhitespaceSensitivity": "css",
-            "singleQuote": true
-        }
-    },
-    "vetur.format.defaultFormatter.html": "prettier",
-    "vetur.format.defaultFormatter.js": "prettier",
-    "vetur.format.defaultFormatter.css": "prettier",
-    "vetur.format.defaultFormatter.less": "prettier",
-    "vetur.format.defaultFormatter.scss": "prettier",
-    "vetur.format.defaultFormatter.ts": "prettier",
-    "vetur.format.defaultFormatter.postcss": "prettier",
-
     "json.format.enable": false,
 
     "html.format.enable": true,
     "html.validate.styles": true,
     "html.validate.scripts": true,
     "html.format.wrapAttributes": "auto",
+    "volar.enable": true,
+    "volar.autoClosingTags": true,
 
     "eslint.alwaysShowStatus": true,
     "eslint.format.enable": false,
