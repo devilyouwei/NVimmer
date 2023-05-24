@@ -272,6 +272,7 @@ set selection=inclusive
 set wildmenu
 set mousemodel=popup
 color molokai
+set background=light
 "--------------------------------------------显示相关---------------------------------------
 set cul "高亮光标所在行
 set cuc
