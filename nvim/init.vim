@@ -10,16 +10,16 @@ let g:coc_global_extensions=[
             \'coc-eslint',
             \'coc-tsserver',
             \'coc-snippets',
+            \'coc-rust-analyzer',
             \'coc-git',
             \'coc-emmet',
             \'coc-kotlin',
             \'coc-clangd',
             \'coc-java',
             \'coc-yaml',
-            \'@yaegassy/coc-volar',
-            \'@yaegassy/coc-volar-tools',
+            \'coc-wxml',
+            \'coc-vetur',
             \'coc-pyright',
-            \'coc-stylelint',
             \'coc-pairs',
             \'coc-json',
             \'coc-lists',
@@ -37,25 +37,27 @@ let g:coc_global_extensions=[
             \]
 
 " code syntax
-Plug 'thesis/vim-solidity', {'branch': 'main' }
+Plug 'thesis/vim-solidity'
 Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue',{'for':'vue'}
-Plug 'cjrh/vim-conda',{'for':'python'}
 Plug 'uiiaoo/java-syntax.vim', {'for':'java'}
+Plug 'rust-lang/rust.vim', {'for':'rust'}
+"Plug 'othree/html5.vim', {'for':['html','vue','php']}
 Plug 'ap/vim-css-color'
+"Plug 'hail2u/vim-css3-syntax',{'for':['html','vue','php','css']}
 Plug 'stephpy/vim-yaml',{'for':'yaml'}
 Plug 'tpope/vim-haml',{'for':['haml','sass','scss']}
 " themes
 Plug 'flazz/vim-colorschemes'
 Plug 'jacoborus/tender.vim'
 Plug 'majutsushi/tagbar', {'on':'TagbarToggle'}
+"let g:tagbar_ctags_bin='/opt/homebrew/Cellar/ctags/5.8_2/bin/ctags'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='qwq'
 " others
-Plug 'jiangmiao/auto-pairs'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
@@ -77,24 +79,32 @@ Plug 'vim-scripts/matchit.zip', {'for':['html','xml','vue','php','typescriptreac
 " CLang
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 " json
-"Plug 'leshill/vim-json', {'for':'json'}
+Plug 'leshill/vim-json', {'for':'json'}
 "kotlin
 Plug 'udalov/kotlin-vim',{'for':'kotlin'}
-Plug 'preservim/nerdtree'
-Plug 'johnstef99/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
-let NERDTreeShowHidden=1
-" Close the tab if NERDTree is the only window remaining in it.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 " markdown
 "Plug 'godlygeek/tabular'
 "Plug 'plasticboy/vim-markdown'
+" nerdtree plugins
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+let NERDTreeShowHidden=1
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+            \ quit | endif
+" Start NERDTree when Vim starts with a directory argument.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+            \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
 " px to rem
 Plug 'Oldenborg/vim-px-to-rem'
 let g:px_to_rem_base = 50 "use flexble.js default 1rem = 50px
 call plug#end()
 
 "------------------------------coc.nvim---------------------------------------
+"" https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.vim
+
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
 set encoding=utf-8
@@ -140,14 +150,14 @@ endif
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent><nowait> [g <Plug>(coc-diagnostic-prev)
+nmap <silent><nowait> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent><nowait> gd <Plug>(coc-definition)
+nmap <silent><nowait> gy <Plug>(coc-type-definition)
+nmap <silent><nowait> gi <Plug>(coc-implementation)
+nmap <silent><nowait> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -174,8 +184,6 @@ augroup mygroup
     autocmd!
     " Setup formatexpr specified filetype(s)
     autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    " Update signature help on jump placeholder
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying code actions to the selected code block
@@ -271,7 +279,6 @@ set selection=inclusive
 set wildmenu
 set mousemodel=popup
 color molokai
-set background=light
 "--------------------------------------------显示相关---------------------------------------
 set cul "高亮光标所在行
 set cuc
@@ -323,8 +330,8 @@ map <C-Right> :bp<CR>        "上一个缓冲区
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 map <F12> :Format<CR>
 autocmd filetype vim noremap <buffer> <F12> :Autoformat<CR>
-" autocmd filetype markdown noremap <buffer> <F12> :CocCommand markdownlint.fixAll<CR>
-" autocmd filetype vue,typescriptreact,javascriptreact noremap <buffer> <F12> :Prettier<CR>
+"autocmd filetype markdown noremap <buffer> <F12> :CocCommand markdownlint.fixAll<CR>
+"autocmd filetype vue,typescriptreact,javascriptreact noremap <buffer> <F12> :Prettier<CR>
 let g:shfmt_opt="-ci"
 autocmd filetype cs,c,cpp,kotlin,sh,zsh noremap <buffer> <F12> :Neoformat<CR>
 "常用快捷键---------------------------------------------------------------------------------------
@@ -334,7 +341,6 @@ nnoremap <F2> :g/^\s*$/d<CR>:g/\s\+$/s<CR>
 map! <C-O> <C-Y>,
 "列出当前目录文件
 noremap <F3> :NERDTreeToggle<CR>
-nnoremap <leader>l <cmd>call setqflist([])<cr>
 "nmap <F4> :CocCommand floaterm.toggle<CR>
 let g:floaterm_keymap_toggle = '<F4>'
 "tagbar
@@ -345,6 +351,8 @@ noremap <F5> :w<CR>
 autocmd filetype markdown nmap <F6> :CocCommand markdown-preview-enhanced.openPreview<CR>
 
 "实用配置------------------------------------------------------------------------------
+" 只剩 NERDTree时自动关闭
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " 设置当文件被改动时自动载入
 set autoread
 au FocusGained * :checktime
@@ -390,7 +398,6 @@ set matchtime=5
 " 光标移动到buffer的顶部和底部时保持3行距离
 set scrolloff=5
 set autochdir "输出时只有文件名，不带./ ../等目录前缀(默认了执行％在当前的目录下)
-set termencoding=UTF-8
 set encoding=UTF-8
 set fileencodings=utf-8,ucs-bom,gbk,cp936,gb2312,gb18030
 
