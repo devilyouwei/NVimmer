@@ -49,6 +49,7 @@ Plug 'stephpy/vim-yaml',{'for':'yaml'}
 Plug 'tpope/vim-haml',{'for':['haml','sass','scss']}
 " themes
 Plug 'flazz/vim-colorschemes'
+Plug 'folke/tokyonight.nvim'
 Plug 'jacoborus/tender.vim'
 Plug 'majutsushi/tagbar', {'on':'TagbarToggle'}
 "let g:tagbar_ctags_bin='/opt/homebrew/Cellar/ctags/5.8_2/bin/ctags'
@@ -56,7 +57,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='qwq'
+let g:airline_theme='molokai'
 " others
 Plug 'honza/vim-snippets'
 Plug 'Shougo/neco-vim'
@@ -86,20 +87,27 @@ Plug 'udalov/kotlin-vim',{'for':'kotlin'}
 "Plug 'godlygeek/tabular'
 "Plug 'plasticboy/vim-markdown'
 " nerdtree plugins
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'preservim/nerdtree'
 let NERDTreeShowHidden=1
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-            \ quit | endif
+let g:NERDTreeGitStatusShowIgnored = 1
+let g:NERDTreeGitStatusUseNerdFonts = 1
 " Start NERDTree when Vim starts with a directory argument.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
             \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 " px to rem
 Plug 'Oldenborg/vim-px-to-rem'
 let g:px_to_rem_base = 50 "use flexble.js default 1rem = 50px
+
+"auto completion, LLM
+Plug 'github/copilot.vim'
 call plug#end()
 
 "------------------------------coc.nvim---------------------------------------
@@ -340,7 +348,8 @@ nnoremap <F2> :g/^\s*$/d<CR>:g/\s\+$/s<CR>
 "html标签自动补全
 map! <C-O> <C-Y>,
 "列出当前目录文件
-noremap <F3> :NERDTreeToggle<CR>
+noremap <F3> <cmd>NERDTreeToggle<CR>
+"noremap <F3> <cmd>CHADopen<CR>
 "nmap <F4> :CocCommand floaterm.toggle<CR>
 let g:floaterm_keymap_toggle = '<F4>'
 "tagbar
@@ -351,8 +360,6 @@ noremap <F5> :w<CR>
 autocmd filetype markdown nmap <F6> :CocCommand markdown-preview-enhanced.openPreview<CR>
 
 "实用配置------------------------------------------------------------------------------
-" 只剩 NERDTree时自动关闭
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " 设置当文件被改动时自动载入
 set autoread
 au FocusGained * :checktime
